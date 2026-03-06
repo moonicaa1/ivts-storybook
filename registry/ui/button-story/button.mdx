@@ -5,7 +5,7 @@ import {
   VariantCard, StateCard, DoDont, Row, TokenRow,
 } from './ButtonDocHelpers';
 import { Button } from '../../../bases/radix/components/ui/button';
-import { Mail, Trash2, Download } from 'lucide-react';
+import { Mail, Trash2, Download, Loader2 } from 'lucide-react';
 
 <Meta of={ButtonStories} />
 
@@ -153,13 +153,16 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <Grid3>
   <StateCard title="Loading" desc="비동기 작업 진행 중 상태입니다. disabled와 함께 사용해 중복 제출을 방지하고, aria-busy='true'를 설정하세요.">
-    <Canvas of={ButtonStories.Loading} sourceState="hidden" />
+    <Button variant="outline" disabled aria-busy="true">
+      <Loader2 className="animate-spin" />
+      저장 중...
+    </Button>
   </StateCard>
   <StateCard title="Disabled" desc="인터랙션이 비활성화된 상태입니다. opacity-50이 적용되며 pointer-events-none으로 클릭이 차단됩니다.">
-    <Canvas of={ButtonStories.Disabled} sourceState="hidden" />
+    <Button disabled>Button</Button>
   </StateCard>
   <StateCard title="With Icon" desc="아이콘은 레이블 앞(leading) 또는 뒤(trailing)에 배치할 수 있습니다. gap과 자동 크기 조정이 적용됩니다.">
-    <Canvas of={ButtonStories.WithIcon} sourceState="hidden" />
+    <Button variant="secondary"><Mail /> 이메일 로그인</Button>
   </StateCard>
 </Grid3>
 
