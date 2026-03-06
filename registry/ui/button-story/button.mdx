@@ -58,7 +58,7 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
   </tbody>
 </table>
 
-<Canvas of={ButtonStories.WithIcon} sourceState="shown" />
+<Canvas of={ButtonStories.WithIcon} sourceState="closed" />
 
 ---
 
@@ -303,7 +303,7 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 ### 아이콘 전용 버튼 — aria-label 필수
 
-<Canvas of={ButtonStories.IconAccessible} sourceState="shown" />
+<Canvas of={ButtonStories.IconAccessible} sourceState="closed" />
 
 ---
 
@@ -311,11 +311,11 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 버튼은 가장 가까운 부모의 `dir` 속성을 상속합니다. RTL 적용 시 Flex 레이아웃이 자동으로 미러링됩니다.
 
-<Canvas of={ButtonStories.RTLDirection} sourceState="shown" />
+<Canvas of={ButtonStories.RTLDirection} sourceState="closed" />
 
 고정 너비 컨테이너에서 긴 레이블은 `truncate`로 처리하세요.
 
-<Canvas of={ButtonStories.TruncatedText} sourceState="shown" />
+<Canvas of={ButtonStories.TruncatedText} sourceState="closed" />
 
 ---
 
@@ -325,28 +325,28 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 `asChild` prop으로 버튼 스타일을 유지하면서 다른 요소로 렌더링합니다.
 
-<Canvas of={ButtonStories.AsChildAnchor} sourceState="shown" />
+<Canvas of={ButtonStories.AsChildAnchor} sourceState="closed" />
 
 ### 비동기 제출 (로딩 상태)
 
 클릭 시 로딩 스피너가 나타나고 2초 후 완료 상태로 전환됩니다.
 
-<Canvas of={ButtonStories.AsyncSubmit} sourceState="shown" />
+<Canvas of={ButtonStories.AsyncSubmit} sourceState="closed" />
 
 ### 주 액션 + 보조 액션 쌍
 
 다이얼로그 하단의 가장 흔한 버튼 레이아웃 패턴입니다.
 
-<Canvas of={ButtonStories.ActionPair} sourceState="shown" />
+<Canvas of={ButtonStories.ActionPair} sourceState="closed" />
 
 ### Trailing 아이콘 (네비게이션)
 
 다음 화면으로 이동을 암시할 때 trailing 아이콘을 사용합니다.
 
-<Canvas of={ButtonStories.TrailingIcon} sourceState="shown" />
+<Canvas of={ButtonStories.TrailingIcon} sourceState="closed" />
 
 ### Destructive + 확인 패턴
 
 버튼을 클릭하면 인라인 확인 단계가 나타납니다. 실제 서비스에서는 AlertDialog를 사용하세요.
 
-<Canvas of={ButtonStories.DestructiveConfirm} sourceState="shown" />
+<Canvas of={ButtonStories.DestructiveConfirm} sourceState="closed" />
