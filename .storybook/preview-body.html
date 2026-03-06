@@ -1,0 +1,31 @@
+<!-- Geist Mono (코드용 유지) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<!-- Pretendard (전체 UI 폰트) -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+/>
+<style>
+  :root {
+    --font-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-geist-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
+    --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  body, html {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+  }
+  /* Storybook docs 본문 폰트 통일 */
+  .sbdocs, .sbdocs-wrapper, .sbdocs-content,
+  .docs-story, [class*="prose"] {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+</style>

@@ -1,0 +1,156 @@
+<style>
+  /* ─── Fluent UI Sidebar Override ─────────────────────────────── */
+
+  /* 전체 sidebar 배경 & 폰트 */
+  #storybook-explorer-tree,
+  .sidebar-container,
+  [class*="sidebar-"] {
+    font-family: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 13px !important;
+  }
+
+  /* 사이드바 왼쪽 패널 전체 배경 */
+  .os-content,
+  [class*="scrollarea-"] {
+    background: #ffffff !important;
+  }
+
+  /* ─── 사이드바 아이템 기본 ─────────────────────── */
+  [data-item-id] button,
+  [data-item-id] a,
+  [class*="ListItem"] {
+    border-radius: 4px !important;
+    margin: 0 6px !important;
+    padding-top: 5px !important;
+    padding-right: 8px !important;
+    padding-bottom: 5px !important;
+    padding-left: 8px !important;
+    font-size: 13px !important;
+    color: #323130 !important;
+    transition: background 0.1s ease !important;
+  }
+
+  /* ─── depth 별 들여쓰기 ──────────────────────────── */
+  /* depth 1 — 폴더 (Accordion, Badge 등) */
+  [data-item-id][data-nodetype="component"] button,
+  [data-item-id][data-nodetype="component"] a,
+  [data-item-id][data-nodetype="group"] button,
+  [data-item-id][data-nodetype="group"] a {
+    padding-left: 8px !important;
+  }
+
+  /* depth 2 — 스토리/독스 (Docs, Default 등) */
+  /* v10: docs 타입은 "document", 스토리는 "story" */
+  [data-item-id][data-nodetype="story"] button,
+  [data-item-id][data-nodetype="story"] a,
+  [data-item-id][data-nodetype="document"] button,
+  [data-item-id][data-nodetype="document"] a {
+    padding-left: 28px !important;
+  }
+
+  /* ─── 아이콘 컬러 — 기본 검정 ───────────────────── */
+  [data-item-id]:not([data-selected="true"]) svg {
+    color: #1a1a1a !important;
+    fill: #1a1a1a !important;
+  }
+
+  /* 호버 */
+  [data-item-id] button:hover,
+  [data-item-id] a:hover {
+    background: #f3f2f1 !important;
+    color: #201f1e !important;
+  }
+
+  /* 선택된 아이템 — Fluent Blue */
+  [data-item-id][data-selected="true"] button,
+  [data-item-id][data-selected="true"] a,
+  button[class*="selected"],
+  a[class*="selected"] {
+    background: #0078d4 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
+
+  /* 선택된 아이템 내부 아이콘도 white */
+  [data-item-id][data-selected="true"] svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+  }
+
+  /* ─── 그룹(루트) 타이틀 ─────────────────────────── */
+  [class*="groupName"],
+  [data-item-id][data-nodetype="root"] button {
+    font-size: 14px !important;
+    font-weight: 500 !important;   /* 볼드 제거 */
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #1a1a1a !important;
+    padding: 12px 14px 4px !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  [data-item-id][data-nodetype="root"] button:hover {
+    background: transparent !important;
+    color: #000000 !important;
+  }
+
+  /* ─── 검색 input ─────────────────────────────────── */
+  input[class*="search"],
+  [class*="search-"] input {
+    border-radius: 2px !important;
+    border: 1px solid #8a8886 !important;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif !important;
+    font-size: 13px !important;
+    padding: 5px 10px !important;
+  }
+
+  input[class*="search"]:focus,
+  [class*="search-"] input:focus {
+    border-color: #0078d4 !important;
+    box-shadow: 0 0 0 1px #0078d4 !important;
+    outline: none !important;
+  }
+
+  /* ─── 브랜드 로고 영역 ───────────────────────────── */
+  [class*="brand"] a,
+  [class*="brand"] button {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #323130 !important;
+  }
+
+  /* ─── 툴바 (상단 메뉴바) ─────────────────────────── */
+  nav[class*="Toolbar"],
+  [class*="toolbar-"] {
+    border-bottom: 1px solid #edebe9 !important;
+    background: #ffffff !important;
+  }
+
+  /* ─── 탭 버튼 (Canvas / Docs) ────────────────────── */
+  [role="tab"] {
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+  }
+
+  [role="tab"][aria-selected="true"] {
+    color: #0078d4 !important;
+    border-bottom-color: #0078d4 !important;
+    font-weight: 600 !important;
+  }
+
+  /* ─── Docs 페이지 본문 폰트 ──────────────────────── */
+  .sbdocs,
+  .sbdocs-wrapper {
+    font-family: "Segoe UI Variable", "Segoe UI", -apple-system, sans-serif !important;
+  }
+
+  /* ─── 아이템 간 구분선 제거 ──────────────────────── */
+  [class*="separator"],
+  hr[class*="separator"] {
+    border-color: #f3f2f1 !important;
+    margin: 4px 0 !important;
+  }
+</style>
