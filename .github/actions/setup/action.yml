@@ -19,4 +19,4 @@ runs:
 
       - name: Install dependencies
         shell: bash
-        run: bun install --frozen-lockfile --silent
+        run: bun install --silent
