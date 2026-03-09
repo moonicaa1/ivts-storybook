@@ -1,5 +1,5 @@
-name: Setup with Bun
-description: Perform standard setup and install dependencies using bun.
+name: Setup with npm
+description: Perform standard setup and install dependencies using npm.
 inputs:
   node-version:
     description: The version of Node.js to install
@@ -9,14 +9,12 @@ inputs:
 runs:
   using: composite
   steps:
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-
       - name: Set Node.js (${{ inputs.node-version }})
         uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
+          cache: "npm"
 
       - name: Install dependencies
         shell: bash
-        run: bun install --silent
+        run: npm ci

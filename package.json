@@ -24,6 +24,7 @@
     "build-storybook": "storybook build -o storybook-static"
   },
   "dependencies": {
+    "@base-ui/react": "^1.2.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-form": "^1.28.0",

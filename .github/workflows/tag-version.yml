@@ -30,6 +30,6 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Tag Version
-        run: bun release
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

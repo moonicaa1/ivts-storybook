@@ -22,7 +22,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run Lint
-        run: bun lint
+        run: npm run lint
 
   verify-types:
     name: "Types"
@@ -35,7 +35,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Verify Types
-        run: bun type-check
+        run: npm run type-check
 
   registry-build:
     needs:
@@ -52,7 +52,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build Registry
-        run: bun registry:build
+        run: npm run registry:build
 
       - name: Check for registry build changes
         run: git diff --exit-code
@@ -71,7 +71,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Check Formatting
-        run: bun format:check
+        run: npm run format:check
 
   unit-test:
     needs:
@@ -87,7 +87,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run Component Tests
-        run: bun run test:unit
+        run: npm run test:unit
 
   component-test:
     needs:
@@ -107,4 +107,4 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Component Tests
-        run: bun run test:storybook
+        run: npm run test:storybook
