@@ -2,7 +2,6 @@
 
 import {
   AdjustmentsHorizontalIcon,
-  ArchiveBoxIcon,
   ArrowTopRightOnSquareIcon,
   BellAlertIcon,
   ChatBubbleBottomCenterTextIcon,
@@ -75,56 +74,64 @@ function ComponentCard({ item }: { item: ComponentItem }) {
   return (
     <a
       href={item.path}
+      className="sb-catalog-card"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        display: "flex", flexDirection: "column",
-        padding: "16px 20px",
-        background: hovered ? "#fafafa" : "#ffffff",
-        border: `1px solid ${hovered ? "#e4e4e7" : "#f4f4f5"}`,
+        display: "flex",
+        flexDirection: "column",
+        padding: "20px",
+        background: "#ffffff",
+        border: "1px solid #e5e7eb",
         borderRadius: "12px",
         textDecoration: "none",
-        transition: "all 0.15s ease",
-        boxShadow: hovered ? "0 4px 12px rgba(0,0,0,0.06)" : "0 1px 2px rgba(0,0,0,0.03)",
-        transform: hovered ? "translateY(-1px)" : "none",
+        color: "inherit",
+        transition: "border-color 0.2s, box-shadow 0.2s, background 0.2s",
+        boxShadow: hovered ? "0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.06)" : "0 1px 2px 0 rgba(0,0,0,0.05)",
         cursor: "pointer",
-        gap: "10px",
+        gap: "12px",
+        ...(hovered && {
+          borderColor: "#d1d5db",
+          background: "#fafafa",
+        }),
       }}
     >
       {/* Icon + Status */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <div style={{
-          width: 36, height: 36, borderRadius: "8px",
+          width: 40, height: 40, borderRadius: "10px",
           background: color.bg, border: `1px solid ${color.border}`,
           display: "flex", alignItems: "center", justifyContent: "center",
           flexShrink: 0,
         }}>
           {React.createElement(CategoryIcon[item.category], {
-            style: { width: 18, height: 18, color: color.icon },
+            style: { width: 20, height: 20, color: color.icon },
           })}
         </div>
         <StatusBadge status={item.status} />
       </div>
 
       {/* Name + description */}
-      <div>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{
-          fontSize: "14px", fontWeight: 600,
-          color: hovered ? "#18181b" : "#27272a",
-          marginBottom: "4px",
-          display: "flex", alignItems: "center", gap: "4px",
+          fontSize: "15px", fontWeight: 600,
+          color: "#18181b",
+          marginBottom: "6px",
+          display: "flex", alignItems: "center", gap: "6px",
+          textDecoration: "none",
         }}>
           {item.name}
           {hovered && (
-            <ArrowTopRightOnSquareIcon style={{ width: 12, height: 12, color: "#a1a1aa", flexShrink: 0 }} />
+            <ArrowTopRightOnSquareIcon style={{ width: 14, height: 14, color: "#a1a1aa", flexShrink: 0, opacity: 0.8 }} />
           )}
         </div>
         <p style={{
           margin: 0, fontSize: "13px",
-          color: "#71717a", lineHeight: 1.6,
+          color: "#6b7280", lineHeight: 1.5,
           display: "-webkit-box",
           WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
           overflow: "hidden",
+          textDecoration: "none",
         }}>
           {item.description}
         </p>
@@ -208,14 +215,11 @@ export function CatalogView() {
     }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-        {/* ── Page Header */}
-        <div style={{ paddingBottom: "32px", borderBottom: "1px solid #f4f4f5", marginBottom: "32px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-            <ArchiveBoxIcon style={{ width: 22, height: 22, color: "#18181b" }} />
-            <h1 style={{ margin: 0, fontSize: "26px", fontWeight: 700, color: "#09090b", letterSpacing: "-0.03em" }}>
-              Components
-            </h1>
-          </div>
+        {/* ── Page Header (Introduction 부제목과 동일: 20px, 600, 아이콘/디바이더 없음) */}
+        <div style={{ paddingBottom: "32px", marginBottom: "32px" }}>
+          <h2 className="sb-docs-section-title" style={{ margin: "0 0 16px", fontSize: "20px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em" }}>
+            Components
+          </h2>
           <p style={{ margin: 0, fontSize: "14px", color: "#71717a", lineHeight: 1.6 }}>
             디자인 시스템에서 제공하는 모든 컴포넌트 목록입니다.
             현재 <strong style={{ color: "#27272a" }}>{componentsData.length}개</strong>의 컴포넌트가 {CATEGORIES.length}개 카테고리로 분류되어 있습니다.
@@ -280,26 +284,16 @@ export function CatalogView() {
             const Icon = CategoryIcon[category as ComponentCategory];
             return (
               <div key={category} style={{ marginBottom: "48px" }}>
-                {/* Section header */}
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-                  <div style={{
-                    width: 24, height: 24, borderRadius: "6px",
-                    background: color?.bg ?? "#f4f4f5",
-                    border: `1px solid ${color?.border ?? "#e4e4e7"}`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    {Icon && React.createElement(Icon, { style: { width: 13, height: 13, color: color?.icon ?? "#71717a" } })}
-                  </div>
-                  <span style={{ fontSize: "13px", fontWeight: 600, color: "#27272a" }}>{category}</span>
-                  <span style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: 400 }}>{items.length}</span>
-                  <div style={{ flex: 1, height: "1px", background: "#f4f4f5" }} />
-                </div>
+                {/* Section header (아이콘/디바이더 제거, Introduction 부제목 스타일) */}
+                <h2 className="sb-docs-section-title" style={{ margin: "0 0 16px", fontSize: "20px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em" }}>
+                  {category} <span style={{ fontSize: "14px", fontWeight: 400, color: "#a1a1aa" }}>{items.length}</span>
+                </h2>
 
                 {/* Grid */}
                 <div style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-                  gap: "10px",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gap: "16px",
                 }}>
                   {items.map((item) => <ComponentCard key={item.id} item={item} />)}
                 </div>

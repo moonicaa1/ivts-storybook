@@ -28,10 +28,10 @@ export const Badge = ({ status = "Stable" }: { status?: string }) => {
 export const MetaRow = ({ id }: { id: string }) => (
   <div style={{
     display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px",
-    borderRadius: "8px", background: "var(--muted, #f1f5f9)", marginBottom: "24px",
+    borderRadius: "8px", background: "var(--base-muted, #f1f5f9)", marginBottom: "24px",
   }}>
-    <code style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>{id}</code>
-    <span style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
+    <code style={{ fontSize: "12px", color: "var(--base-muted-foreground)" }}>{id}</code>
+    <span style={{ fontSize: "13px", color: "var(--base-muted-foreground)" }}>
       Component · Radix UI Slot · shadcn/ui
     </span>
   </div>
@@ -61,8 +61,8 @@ export const VariantCard = ({
   variant: string; title: string; desc: string; children: React.ReactNode;
 }) => (
   <div style={{
-    border: "1px solid var(--border)", borderRadius: "10px",
-    padding: "20px", background: "var(--card)",
+    border: "1px solid var(--base-border)", borderRadius: "10px",
+    padding: "20px", background: "var(--base-card)",
   }}>
     <div style={{
       display: "flex", justifyContent: "center", alignItems: "center",
@@ -70,17 +70,17 @@ export const VariantCard = ({
     }}>
       {children}
     </div>
-    <div style={{ borderTop: "1px solid var(--border)", paddingTop: "12px" }}>
+    <div style={{ borderTop: "1px solid var(--base-border)", paddingTop: "12px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px" }}>
         <strong style={{ fontSize: "13px" }}>{title}</strong>
         <code style={{
-          fontSize: "11px", color: "var(--muted-foreground)",
-          background: "var(--muted)", padding: "2px 6px", borderRadius: "4px",
+          fontSize: "11px", color: "var(--base-muted-foreground)",
+          background: "var(--base-muted)", padding: "2px 6px", borderRadius: "4px",
         }}>
           variant=&quot;{variant}&quot;
         </code>
       </div>
-      <p style={{ fontSize: "13px", color: "var(--muted-foreground)", margin: 0, lineHeight: 1.6 }}>
+      <p style={{ fontSize: "13px", color: "var(--base-muted-foreground)", margin: 0, lineHeight: 1.6 }}>
         {desc}
       </p>
     </div>
@@ -96,8 +96,8 @@ export const StateCard = ({
   title: string; desc: string; children: React.ReactNode;
 }) => (
   <div style={{
-    border: "1px solid var(--border)", borderRadius: "10px",
-    padding: "20px", background: "var(--card)",
+    border: "1px solid var(--base-border)", borderRadius: "10px",
+    padding: "20px", background: "var(--base-card)",
   }}>
     <div style={{
       display: "flex", justifyContent: "center", alignItems: "center",
@@ -105,9 +105,9 @@ export const StateCard = ({
     }}>
       {children}
     </div>
-    <div style={{ borderTop: "1px solid var(--border)", paddingTop: "12px" }}>
+    <div style={{ borderTop: "1px solid var(--base-border)", paddingTop: "12px" }}>
       <strong style={{ fontSize: "13px", display: "block", marginBottom: "6px" }}>{title}</strong>
-      <p style={{ fontSize: "13px", color: "var(--muted-foreground)", margin: 0, lineHeight: 1.6 }}>
+      <p style={{ fontSize: "13px", color: "var(--base-muted-foreground)", margin: 0, lineHeight: 1.6 }}>
         {desc}
       </p>
     </div>
@@ -125,7 +125,7 @@ export const DoDont = ({
   <div style={{
     flex: "1 1 260px",
     border: `2px solid ${type === "do" ? "#22c55e" : "#ef4444"}`,
-    borderRadius: "10px", padding: "20px", minWidth: 260, background: "var(--card)",
+    borderRadius: "10px", padding: "20px", minWidth: 260, background: "var(--base-card)",
   }}>
     <div style={{
       fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
@@ -134,7 +134,7 @@ export const DoDont = ({
       {type === "do" ? "✓ DO" : "✗ DON'T"}
     </div>
     <div style={{ marginBottom: "14px" }}>{children}</div>
-    <p style={{ fontSize: "13px", color: "var(--muted-foreground)", margin: 0, lineHeight: 1.5 }}>
+    <p style={{ fontSize: "13px", color: "var(--base-muted-foreground)", margin: 0, lineHeight: 1.5 }}>
       {desc}
     </p>
   </div>
@@ -164,7 +164,7 @@ export const TokenRow = ({
     <td style={{ padding: "8px 12px" }}>
       <code style={{ fontSize: "12px", color: "#7c3aed" }}>{tailwind}</code>
     </td>
-    <td style={{ padding: "8px 12px", fontSize: "13px", color: "var(--muted-foreground)" }}>
+    <td style={{ padding: "8px 12px", fontSize: "13px", color: "var(--base-muted-foreground)" }}>
       {applied}
     </td>
   </tr>

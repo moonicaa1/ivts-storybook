@@ -15,9 +15,8 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "release": "semantic-release",
-    "registry:build": "npm run registry:build-radix && npm run registry:build-base && npm run registry:postbuild",
+    "registry:build": "npm run registry:build-radix && npm run registry:postbuild",
     "registry:build-radix": "shadcn build registry.radix.json -o ./public/v3/radix",
-    "registry:build-base": "shadcn build registry.base.json -o ./public/v3/base",
     "registry:postbuild": "node scripts/registry-postbuild.ts",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o storybook-static",
@@ -25,7 +24,6 @@
     "build-storybook": "storybook build -o storybook-static"
   },
   "dependencies": {
-    "@base-ui/react": "^1.1.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-form": "^1.28.0",

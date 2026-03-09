@@ -36,9 +36,9 @@ const fluentTheme = create({
   textInverseColor: "#ffffff",
   textMutedColor: "#605e5c",
 
-  // Input
+  // Input (검색창 테두리 제거)
   inputBg: "#ffffff",
-  inputBorder: "#8a8886",
+  inputBorder: "transparent",
   inputTextColor: "#323130",
   inputBorderRadius: 2,
 });

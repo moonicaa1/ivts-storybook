@@ -36,8 +36,77 @@
     color: #111 !important;
   }
 
+  /* ── Introduction: "title: " 제거, "Introduction"만 표시, 최상단 디바이더 제거 ── */
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) .sbdocs-content,
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) > div:first-child,
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) [class*="docblock"],
+  .docs-story:has(h2[id^="title-introduction"]) .sbdocs-content,
+  .docs-story:has(h2[id^="title-introduction"]) [class*="docblock"],
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) hr:first-of-type {
+    border-top: none !important;
+  }
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) hr:first-of-type {
+    display: none !important;
+  }
+  .sbdocs-wrapper h2[id^="title-introduction"],
+  .sbdocs-wrapper h1[id^="title-introduction"] {
+    font-size: 0 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .sbdocs-wrapper h2[id^="title-introduction"]::after,
+  .sbdocs-wrapper h1[id^="title-introduction"]::after {
+    content: "Introduction" !important;
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    display: block !important;
+  }
+
+  /* ── List: Introduction과 동일 (title: 제거, 타이틀 스타일, 최상단 디바이더 제거) ── */
+  .sbdocs-wrapper:has(h2[id^="title-list"]) .sbdocs-content,
+  .sbdocs-wrapper:has(h2[id^="title-list"]) > div:first-child,
+  .sbdocs-wrapper:has(h2[id^="title-list"]) [class*="docblock"],
+  .docs-story:has(h2[id^="title-list"]) .sbdocs-content,
+  .docs-story:has(h2[id^="title-list"]) [class*="docblock"],
+  .sbdocs-wrapper:has(h2[id^="title-list"]) hr:first-of-type {
+    border-top: none !important;
+  }
+  .sbdocs-wrapper:has(h2[id^="title-list"]) hr:first-of-type {
+    display: none !important;
+  }
+  .sbdocs-wrapper h2[id^="title-list"],
+  .sbdocs-wrapper h1[id^="title-list"] {
+    font-size: 0 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .sbdocs-wrapper h2[id^="title-list"]::after,
+  .sbdocs-wrapper h1[id^="title-list"]::after {
+    content: "List" !important;
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    display: block !important;
+  }
+  .sbdocs-wrapper:has(h2[id^="title-list"]) hr,
+  .sbdocs-wrapper:has(h2[id^="title-list"]) [class*="docblock"] hr {
+    display: none !important;
+  }
+
+  /* ── List: 컴포넌트 카드 링크 밑줄 제거 (shadcn 스타일) ── */
+  .sb-catalog-card,
+  .sb-catalog-card:hover,
+  .sb-catalog-card * {
+    text-decoration: none !important;
+  }
+
   /* ── H1 ──────────────────────────────────────────── */
-  .sbdocs-content h1 {
+  .sbdocs-content h1:not(.sb-docs-intro-title) {
     font-family: "Geist", sans-serif !important;
     font-size: 52px !important;
     font-weight: 800 !important;
@@ -47,6 +116,21 @@
     margin: 0 0 16px 0 !important;
     border-bottom: none !important;
     padding-bottom: 0 !important;
+  }
+
+  /* ── Introduction: Design System Goal, Principles (타이틀 28px보다 작게, 디바이더 제거, 부제목-본문 간격) ── */
+  .sbdocs-content h2.sb-docs-section-title,
+  .sbdocs-content .sb-docs-section-title,
+  .sb-docs-section-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 36px !important;
+  }
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) hr,
+  .sbdocs-wrapper:has(h2[id^="title-introduction"]) [class*="docblock"] hr {
+    display: none !important;
   }
 
   /* ── H2 ──────────────────────────────────────────── */

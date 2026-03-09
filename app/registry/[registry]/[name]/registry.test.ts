@@ -64,10 +64,6 @@ vi.mock("@/registry.radix.json", () => ({
   default: registryMock,
 }));
 
-vi.mock("@/registry.base.json", () => ({
-  default: registryMock,
-}));
-
 // Mock path module
 vi.mock("path", () => ({
   default: {
@@ -230,10 +226,10 @@ export default { title: "Example/Button" };`;
       mockedReadFile.mockResolvedValue(mockFileContent);
 
       const request = new NextRequest(
-        "http://localhost:3000/registry/base/button-story",
+        "http://localhost:3000/registry/radix/button-story",
       );
       const params = Promise.resolve({
-        registry: "base",
+        registry: "radix",
         name: "button-story",
       });
 
@@ -302,10 +298,10 @@ export default { title: "Example/Button" };`;
       mockedReadFile.mockResolvedValue(mockFileContent);
 
       const request = new NextRequest(
-        "http://localhost:3000/registry/base/button-story",
+        "http://localhost:3000/registry/radix/button-story",
       );
       const params = Promise.resolve({
-        registry: "base",
+        registry: "radix",
         name: "button-story",
       });
 
@@ -367,13 +363,13 @@ export default { title: "Example/Button" };`;
     expect(data).toEqual({ error: "Something went wrong" });
   });
 
-  it("should generate static params for both registries", async () => {
+  it("should generate static params for radix registry", async () => {
     const params = await generateStaticParams();
 
     expect(params).toEqual(
       expect.arrayContaining([
         { registry: "radix", name: "button-story" },
-        { registry: "base", name: "button-story" },
+        { registry: "radix", name: "card-story" },
       ]),
     );
   });

@@ -73,8 +73,8 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         // CSS 변수 fallback: 실제 값 하드코딩
         s.textContent = `
           html, body, #storybook-root, #root, .sb-show-main {
-            background: var(--background, oklch(0.145 0 0)) !important;
-            color: var(--foreground, oklch(0.985 0 0)) !important;
+            background: var(--base-background, oklch(0.145 0 0)) !important;
+            color: var(--base-foreground, oklch(0.985 0 0)) !important;
           }
         `;
       } else {
@@ -116,8 +116,8 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         body, #storybook-root,
         .sbdocs, .sbdocs-wrapper, .sbdocs-content,
         .docs-story, [class*="DocsPageWrapper"] {
-          background: var(--background, oklch(0.145 0 0)) !important;
-          color: var(--foreground, oklch(0.985 0 0)) !important;
+          background: var(--base-background, oklch(0.145 0 0)) !important;
+          color: var(--base-foreground, oklch(0.985 0 0)) !important;
         }
 
         /* ── 타이틀 · 설명 · 본문 ── */
@@ -125,7 +125,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .sbdocs-content h3, .sbdocs-content h4,
         .sbdocs-content p,  .sbdocs-content li,
         .sbdocs-content span, .sbdocs-content label {
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
         }
         [class*="Subtitle"], [class*="subtitle"],
         [class*="Description"], [class*="description"] {
@@ -140,7 +140,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .docs-story > div {
           background: var(--card, oklch(0.205 0 0)) !important;
           border-color: var(--border, oklch(1 0 0 / 10%)) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
         }
 
         /* ── 뷰어 조정 툴바 (줌/확장 버튼 바) ── */
@@ -183,7 +183,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         [class*="TableWrapper"], [class*="ArgsTable"],
         [class*="ArgRow"],       [class*="ResetWrapper"] {
           background: var(--card) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
           border-color: var(--border) !important;
         }
         .sbdocs-content table, .sbdocs-content thead,
@@ -193,7 +193,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         }
         .sbdocs-content td, .sbdocs-content th {
           background: var(--card) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
           border-color: var(--border) !important;
         }
 
@@ -202,7 +202,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .sbdocs-content span,
         .sbdocs-content [class*="Label"],
         .sbdocs-content [class*="label"] {
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
         }
         .sbdocs-content input[type="text"],
         .sbdocs-content input[type="number"],
@@ -210,7 +210,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .sbdocs-content textarea,
         .sbdocs-content select {
           background: oklch(0.22 0 0) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
           border-color: var(--border) !important;
         }
         /* radio/checkbox 옵션 목록 */
@@ -220,14 +220,14 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .sbdocs-content [class*="SelectControl"],
         .sbdocs-content [class*="BooleanControl"] {
           background: transparent !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
         }
         /* reset / Set boolean 버튼 */
         .sbdocs-content [class*="ResetButton"],
         .sbdocs-content [class*="ControlButton"],
         .sbdocs-content [class*="Button"] {
           background: oklch(0.28 0 0) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
           border-color: var(--border) !important;
         }
 
@@ -235,7 +235,7 @@ export function TocContainer({ children, context }: DocsContainerProps) {
         .sbdocs-content code, .sbdocs-content pre,
         [class*="SyntaxHighlighter"] {
           background: var(--muted) !important;
-          color: var(--foreground) !important;
+          color: var(--base-foreground) !important;
         }
 
         /* ── Show code / 버튼 ── */

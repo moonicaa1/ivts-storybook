@@ -9,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/bases/radix/components/ui/table";
-import baseRegistry from "@/registry.base.json";
 import radixRegistry from "@/registry.radix.json";
 import { RegistryItemRow } from "../components/registry_item_row";
 
@@ -23,32 +22,16 @@ type Registry = {
 };
 
 const registryConfig = {
-  radix: {
-    label: "Radix UI",
-    url: "https://registry.lloydrichards.dev/v3/radix/{name}.json",
-    registry: radixRegistry,
-    example: "button-story",
-  },
-  base: {
-    label: "Base UI",
-    url: "https://registry.lloydrichards.dev/v3/base/{name}.json",
-    registry: baseRegistry,
-    example: "button-story",
-  },
+  label: "Radix UI",
+  url: "https://registry.lloydrichards.dev/v3/radix/{name}.json",
+  registry: radixRegistry as Registry,
+  example: "button-story",
 } as const;
 
-const Home = async ({
-  searchParams,
-}: {
-  searchParams?: Promise<{ registry?: keyof typeof registryConfig }>;
-}) => {
-  const params = await searchParams;
-  const registrySelection = params?.registry || "radix";
-  const registry = registryConfig[registrySelection].registry;
-  const selectedConfig = registryConfig[registrySelection];
-  const exampleUrl = selectedConfig.url.replace(
+const Home = () => {
+  const exampleUrl = registryConfig.url.replace(
     "{name}.json",
-    `${selectedConfig.example}.json`,
+    `${registryConfig.example}.json`,
   );
   return (
     <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
@@ -63,33 +46,11 @@ const Home = async ({
                 A collection of stories for the components of Shadcn/ui
               </p>
             </div>
-            <ButtonGroup>
-              <Button
-                asChild
-                variant={registrySelection === "radix" ? "default" : "outline"}
-                size="lg"
-              >
-                <a className="text-xl" href="?registry=radix">
-                  Radix UI
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant={registrySelection === "base" ? "default" : "outline"}
-                size="lg"
-              >
-                <a className="text-xl" href="?registry=base">
-                  Base UI
-                </a>
-              </Button>
-            </ButtonGroup>
           </div>
           <div className="bg-muted/40 text-muted-foreground rounded-2xl border p-4 text-sm">
             <p className="text-foreground">
-              <span className="font-bold">Getting started:</span> pick a
-              registry from the toggle on the top right (between{" "}
-              {registryConfig.radix.label} and {registryConfig.base.label}) and
-              copy the matching setup below.
+              <span className="font-bold">Getting started:</span> copy the
+              matching setup below.
             </p>
             <div className="mt-3 grid gap-3">
               <div className="bg-background rounded-xl border p-3">
@@ -100,7 +61,7 @@ const Home = async ({
                   {`{
   // ...rest of your components.json
   "registries": {
-    "@storybook": "${selectedConfig.url}"
+    "@storybook": "${registryConfig.url}"
   }
 }`}
                 </pre>
@@ -110,7 +71,7 @@ const Home = async ({
                   Install
                 </p>
                 <pre className="text-foreground mt-2 overflow-x-auto text-xs">
-                  {`npx shadcn@latest add @storybook/${selectedConfig.example}
+                  {`npx shadcn@latest add @storybook/${registryConfig.example}
 npx shadcn@latest add ${exampleUrl}`}
                 </pre>
               </div>
@@ -133,16 +94,12 @@ npx shadcn@latest add ${exampleUrl}`}
                 Component <span className="text-muted-foreground">Stories</span>
               </TableCell>
             </TableRow>
-            {registry.items
+            {registryConfig.registry.items
               .filter(
                 (item) => item.categories && item.categories.includes("ui"),
               )
               .map((item) => (
-                <RegistryItemRow
-                  key={item.name}
-                  item={item}
-                  registry={registrySelection}
-                />
+                <RegistryItemRow key={item.name} item={item} />
               ))}
             <TableRow className="hover:bg-background border-b-0">
               <TableCell className="pt-8 text-xs uppercase">
@@ -150,33 +107,25 @@ npx shadcn@latest add ${exampleUrl}`}
                 <span className="text-muted-foreground">Stories</span>
               </TableCell>
             </TableRow>
-            {registry.items
+            {registryConfig.registry.items
               .filter(
                 (item) => item.categories && item.categories.includes("design"),
               )
               .map((item) => (
-                <RegistryItemRow
-                  key={item.name}
-                  item={item}
-                  registry={registrySelection}
-                />
+                <RegistryItemRow key={item.name} item={item} />
               ))}
             <TableRow className="hover:bg-background border-b-0">
               <TableCell className="pt-8 text-xs uppercase">
                 Misc. <span className="text-muted-foreground">Stories</span>
               </TableCell>
             </TableRow>
-            {registry.items
+            {registryConfig.registry.items
               .filter(
                 (item) =>
                   item.categories && item.categories.includes("utility"),
               )
               .map((item) => (
-                <RegistryItemRow
-                  key={item.name}
-                  item={item}
-                  registry={registrySelection}
-                />
+                <RegistryItemRow key={item.name} item={item} />
               ))}
           </TableBody>
         </Table>

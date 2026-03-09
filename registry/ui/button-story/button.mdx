@@ -33,27 +33,27 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', margin: '16px 0' }}>
   <thead>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '100px' }}>파트</th>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '200px' }}>엘리먼트</th>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>설명</th>
     </tr>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><strong>Root</strong></td>
       <td style={{ padding: '8px 12px' }}><code>&lt;button&gt;</code> 또는 <code>Slot.Root</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>모든 네이티브 버튼 속성을 받으며 <code>data-slot="button"</code>이 적용됩니다</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>모든 네이티브 버튼 속성을 받으며 <code>data-slot="button"</code>이 적용됩니다</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><strong>Icon</strong></td>
       <td style={{ padding: '8px 12px' }}><code>&lt;svg&gt;</code> (선택)</td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><code>size-4</code>로 자동 크기 조정, gap은 <code>gap-2</code>로 고정됩니다</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><code>size-4</code>로 자동 크기 조정, gap은 <code>gap-2</code>로 고정됩니다</td>
     </tr>
     <tr>
       <td style={{ padding: '8px 12px' }}><strong>Label</strong></td>
       <td style={{ padding: '8px 12px' }}><code>children</code> 텍스트</td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><code>text-sm font-medium whitespace-nowrap</code> 스타일이 적용됩니다</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><code>text-sm font-medium whitespace-nowrap</code> 스타일이 적용됩니다</td>
     </tr>
   </tbody>
 </table>
@@ -93,7 +93,7 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', margin: '16px 0' }}>
   <thead>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '90px' }}>사이즈</th>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '70px' }}>높이</th>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '110px' }}>아이콘 전용</th>
@@ -101,29 +101,29 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
     </tr>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>xs</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>24px</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>24px</td>
       <td style={{ padding: '8px 12px' }}><code>icon-xs</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>밀도 높은 UI, 뱃지, 인라인 테이블 액션</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>밀도 높은 UI, 뱃지, 인라인 테이블 액션</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>sm</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>32px</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>32px</td>
       <td style={{ padding: '8px 12px' }}><code>icon-sm</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>컴팩트한 폼, 사이드바, 드로어</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>컴팩트한 폼, 사이드바, 드로어</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>default</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>36px</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>36px</td>
       <td style={{ padding: '8px 12px' }}><code>icon</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>표준 — 대부분의 경우</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>표준 — 대부분의 경우</td>
     </tr>
     <tr>
       <td style={{ padding: '8px 12px' }}><code>lg</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>40px</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>40px</td>
       <td style={{ padding: '8px 12px' }}><code>icon-lg</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>히어로 CTA, 온보딩, 랜딩 페이지</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>히어로 CTA, 온보딩, 랜딩 페이지</td>
     </tr>
   </tbody>
 </table>
@@ -210,7 +210,7 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
   <thead>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>CSS 변수</th>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>Tailwind 클래스</th>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>적용 대상</th>
@@ -242,32 +242,32 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', margin: '16px 0' }}>
   <thead>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '140px' }}>속성</th>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '120px' }}>값</th>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>사용 시점</th>
     </tr>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>aria-label</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>문자열</td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><strong>필수</strong> — 아이콘 전용 버튼(텍스트 레이블 없음)</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>문자열</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><strong>필수</strong> — 아이콘 전용 버튼(텍스트 레이블 없음)</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>aria-disabled</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><code>true</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>포커스는 유지하면서 클릭만 막아야 할 때 <code>disabled</code> 대신 사용</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><code>true</code></td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>포커스는 유지하면서 클릭만 막아야 할 때 <code>disabled</code> 대신 사용</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>aria-busy</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><code>true</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>로딩 중 비동기 상태에서 설정</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><code>true</code></td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>로딩 중 비동기 상태에서 설정</td>
     </tr>
     <tr>
       <td style={{ padding: '8px 12px' }}><code>aria-pressed</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}><code>true / false</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>토글 스타일 버튼 (예: 텍스트 에디터의 굵게 버튼)</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}><code>true / false</code></td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>토글 스타일 버튼 (예: 텍스트 에디터의 굵게 버튼)</td>
     </tr>
   </tbody>
 </table>
@@ -276,27 +276,27 @@ Props를 아래 표에서 직접 조작하면 컴포넌트가 실시간으로 �
 
 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', margin: '16px 0' }}>
   <thead>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <th style={{ textAlign: 'left', padding: '8px 12px', width: '160px' }}>키</th>
       <th style={{ textAlign: 'left', padding: '8px 12px' }}>동작</th>
     </tr>
   </thead>
   <tbody>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>Tab</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>버튼으로 포커스 이동</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>버튼으로 포커스 이동</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>Shift + Tab</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>이전 인터랙티브 요소로 포커스 이동</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>이전 인터랙티브 요소로 포커스 이동</td>
     </tr>
-    <tr style={{ borderBottom: '1px solid var(--border)' }}>
+    <tr style={{ borderBottom: '1px solid var(--base-border)' }}>
       <td style={{ padding: '8px 12px' }}><code>Enter</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>버튼 활성화 (제출 / 확인)</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>버튼 활성화 (제출 / 확인)</td>
     </tr>
     <tr>
       <td style={{ padding: '8px 12px' }}><code>Space</code></td>
-      <td style={{ padding: '8px 12px', color: 'var(--muted-foreground)' }}>버튼 활성화</td>
+      <td style={{ padding: '8px 12px', color: 'var(--base-muted-foreground)' }}>버튼 활성화</td>
     </tr>
   </tbody>
 </table>

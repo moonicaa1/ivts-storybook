@@ -1,4 +1,4 @@
-﻿import {
+import {
   Table,
   TableBody,
   TableCell,
@@ -15,17 +15,18 @@ type Radius = {
 };
 
 const RadiusTile = ({ value }: Pick<Radius, "value">) => {
-  const style = window.getComputedStyle(document.body);
-  const radius = style.getPropertyValue(value);
+  const resolved =
+    getComputedStyle(document.documentElement).getPropertyValue(value) ||
+    `var(${value})`;
 
   return (
     <div className="flex flex-col items-center gap-2">
       <div
         className="bg-card size-20 border-2"
-        style={{ borderRadius: radius }}
+        style={{ borderRadius: `var(${value})` }}
       />
       <p className="text-center text-xs opacity-70">{value}</p>
-      <p className="text-center text-xs">{radius}</p>
+      <p className="text-center text-xs">{resolved}</p>
     </div>
   );
 };
@@ -68,6 +69,7 @@ type Story = StoryObj<typeof meta>;
 
 /**
  * Border radius tokens used for UI elements like buttons, cards, and modals.
+ * Figma scale: xs(2px), sm(6px), md(8px), lg(10px), xl(14px), 2xl(16px), 3xl(24px), 4xl(32px)
  */
 export const Core: Story = {
   args: {
@@ -76,6 +78,10 @@ export const Core: Story = {
       { name: "sm", value: "--radius-sm" },
       { name: "md", value: "--radius-md" },
       { name: "lg", value: "--radius-lg" },
+      { name: "xl", value: "--radius-xl" },
+      { name: "2xl", value: "--radius-2xl" },
+      { name: "3xl", value: "--radius-3xl" },
+      { name: "4xl", value: "--radius-4xl" },
     ],
   },
 };

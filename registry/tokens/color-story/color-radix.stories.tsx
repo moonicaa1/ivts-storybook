@@ -1,4 +1,4 @@
-﻿import {
+import {
   Table,
   TableBody,
   TableCell,
@@ -17,22 +17,23 @@ type Swatch = {
 const SwatchList = ({ colors }: { colors: Record<string, string> }) => {
   return (
     <div className="flex overflow-clip rounded-md border shadow">
-      {Object.entries(colors).map(([name, value], idx) => {
-        const styles = getComputedStyle(document.documentElement);
-        const color = styles.getPropertyValue(value);
-
-        return (
+      {Object.entries(colors).map(([name, value], idx) => (
+        <div
+          key={idx}
+          className="bg-background flex w-full flex-col gap-1 pb-3"
+        >
           <div
-            key={idx}
-            className="bg-background flex w-full flex-col gap-1 pb-3"
-          >
-            <div className="h-16 w-full" style={{ backgroundColor: color }} />
-            <p className="text-center font-semibold">{name}</p>
-            <p className="text-center text-xs opacity-70">{value}</p>
-            <p className="text-center text-xs">{color}</p>
-          </div>
-        );
-      })}
+            className="h-16 w-full border border-border"
+            style={{ backgroundColor: `var(${value})` }}
+          />
+          <p className="text-center font-semibold">{name}</p>
+          <p className="text-center text-xs opacity-70">{value}</p>
+          <p className="text-center text-xs">
+            {getComputedStyle(document.documentElement).getPropertyValue(value) ||
+              `var(${value})`}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
@@ -83,43 +84,43 @@ export const Functional: Story = {
       {
         name: "Background",
         colors: {
-          default: "--background",
-          foreground: "--foreground",
+          default: "--base-background",
+          foreground: "--base-foreground",
         },
       },
       {
         name: "Primary",
         colors: {
-          default: "--primary",
-          foreground: "--primary-foreground",
+          default: "--base-primary",
+          foreground: "--base-primary-foreground",
         },
       },
       {
         name: "Secondary",
         colors: {
-          default: "--secondary",
-          foreground: "--secondary-foreground",
+          default: "--base-secondary",
+          foreground: "--base-secondary-foreground",
         },
       },
       {
         name: "Accent",
         colors: {
-          default: "--accent",
-          foreground: "--accent-foreground",
+          default: "--base-accent",
+          foreground: "--base-accent-foreground",
         },
       },
       {
         name: "Muted",
         colors: {
-          default: "--muted",
-          foreground: "--muted-foreground",
+          default: "--base-muted",
+          foreground: "--base-muted-foreground",
         },
       },
 
       {
         name: "Destructive",
         colors: {
-          default: "--destructive",
+          default: "--base-destructive",
         },
       },
     ],
@@ -136,51 +137,51 @@ export const Component: Story = {
       {
         name: "Border",
         colors: {
-          default: "--border",
-          ring: "--ring",
+          default: "--base-border",
+          ring: "--base-ring",
         },
       },
       {
         name: "Card",
         colors: {
-          default: "--card",
-          foreground: "--card-foreground",
+          default: "--base-card",
+          foreground: "--base-card-foreground",
         },
       },
       {
         name: "Input",
         colors: {
-          default: "--input",
+          default: "--base-input",
         },
       },
       {
         name: "Popover",
         colors: {
-          default: "--popover",
-          foreground: "--popover-foreground",
+          default: "--base-popover",
+          foreground: "--base-popover-foreground",
         },
       },
       {
         name: "Chart",
         colors: {
-          "1": "--chart-1",
-          "2": "--chart-2",
-          "3": "--chart-3",
-          "4": "--chart-4",
-          "5": "--chart-5",
+          "1": "--base-chart-1",
+          "2": "--base-chart-2",
+          "3": "--base-chart-3",
+          "4": "--base-chart-4",
+          "5": "--base-chart-5",
         },
       },
       {
         name: "Sidebar",
         colors: {
-          background: "--sidebar",
-          foreground: "--sidebar-foreground",
-          primary: "--sidebar-primary",
-          "primary-foreground": "--sidebar-primary-foreground",
-          accent: "--sidebar-accent",
-          "accent-foreground": "--sidebar-accent-foreground",
-          border: "--sidebar-border",
-          ring: "--sidebar-ring",
+          background: "--base-sidebar",
+          foreground: "--base-sidebar-foreground",
+          primary: "--base-sidebar-primary",
+          "primary-foreground": "--base-sidebar-primary-foreground",
+          accent: "--base-sidebar-accent",
+          "accent-foreground": "--base-sidebar-accent-foreground",
+          border: "--base-sidebar-border",
+          ring: "--base-sidebar-ring",
         },
       },
     ],

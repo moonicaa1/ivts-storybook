@@ -1,4 +1,4 @@
-﻿import {
+import {
   Table,
   TableBody,
   TableCell,
@@ -15,17 +15,18 @@ type Shadow = {
 };
 
 const ShadowTile = ({ value }: Pick<Shadow, "value">) => {
-  const style = window.getComputedStyle(document.body);
-  const shadow = style.getPropertyValue(value);
+  const resolved =
+    getComputedStyle(document.documentElement).getPropertyValue(value) ||
+    `var(${value})`;
 
   return (
     <div className="flex flex-col items-center gap-2">
       <div
         className="bg-card size-20 rounded-md"
-        style={{ boxShadow: shadow }}
+        style={{ boxShadow: `var(${value})` }}
       />
       <p className="text-center text-xs opacity-70">{value}</p>
-      <p className="text-center text-xs">{shadow}</p>
+      <p className="text-center text-xs">{resolved}</p>
     </div>
   );
 };

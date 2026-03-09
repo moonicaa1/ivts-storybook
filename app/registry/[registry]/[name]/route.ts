@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
 
-type RegistryName = "radix" | "base";
+type RegistryName = "radix";
 type RegistryItemFile = { path: string; type: string };
 type RegistryItem = {
   name: string;
@@ -11,40 +11,24 @@ type RegistryItem = {
 };
 type Registry = { items: RegistryItem[] };
 
-const loadRegistry = async (registry: RegistryName): Promise<Registry> => {
-  if (registry === "base") {
-    const registryData = await import("@/registry.base.json");
-    return registryData.default as Registry;
-  }
-
+const loadRegistry = async (): Promise<Registry> => {
   const registryData = await import("@/registry.radix.json");
   return registryData.default as Registry;
 };
 
 const parseRegistry = (registry?: string): RegistryName | null => {
-  if (registry === "radix" || registry === "base") {
+  if (registry === "radix") {
     return registry;
   }
-
   return null;
 };
 
 export const generateStaticParams = async () => {
-  const [radixRegistry, baseRegistry] = await Promise.all([
-    loadRegistry("radix"),
-    loadRegistry("base"),
-  ]);
-
-  return [
-    ...radixRegistry.items.map((item) => ({
-      registry: "radix",
-      name: item.name,
-    })),
-    ...baseRegistry.items.map((item) => ({
-      registry: "base",
-      name: item.name,
-    })),
-  ];
+  const radixRegistry = await loadRegistry();
+  return radixRegistry.items.map((item) => ({
+    registry: "radix",
+    name: item.name,
+  }));
 };
 
 // This route shows an example for serving a component using a route handler.
@@ -63,7 +47,7 @@ export async function GET(
       );
     }
 
-    const registry = await loadRegistry(registryName);
+    const registry = await loadRegistry();
 
     // Find the component from the registry.
     const component = registry.items.find((c) => c.name === name);

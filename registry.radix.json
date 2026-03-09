@@ -11,7 +11,7 @@
       "description": "Interactive Storybook stories demonstrating accordion component usage and variants",
       "categories": ["ui", "storybook", "accordion", "layout"],
       "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
-      "registryDependencies": ["accordion"],
+      "registryDependencies": ["accordion", "card"],
       "files": [
         {
           "path": "registry/ui/accordion-story/accordion-radix.stories.tsx",

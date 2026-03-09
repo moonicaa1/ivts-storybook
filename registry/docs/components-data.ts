@@ -25,7 +25,7 @@ export const componentsData: ComponentItem[] = [
     description: "사용자의 클릭 상호작용을 유도하는 핵심 액션 컴포넌트.",
     category: "Forms",
     status: "Stable",
-    path: "/?path=/docs/component-button--docs",
+    path: "/?path=/docs/component-button--button",
   },
   {
     id: "button-group",

@@ -6,10 +6,8 @@ import { FC } from "react";
 
 export const RegistryItemRow: FC<{
   item: { name: string; title: string; description?: string };
-  registry: "radix" | "base";
-}> = ({ item, registry }) => {
-  const registryBasePath = registry === "base" ? "/v3/base" : "/v3/radix";
-  const registryUrl = `${getBaseUrl()}${registryBasePath}/${item.name}.json`;
+}> = ({ item }) => {
+  const registryUrl = `${getBaseUrl()}/v3/radix/${item.name}.json`;
   return (
     <TableRow key={item.name}>
       <TableCell className="w-50 font-medium">{item.title}</TableCell>
@@ -23,7 +21,7 @@ export const RegistryItemRow: FC<{
       <TableCell>
         <Button variant="link" asChild>
           <a
-            href={`${getBaseUrl()}/storybook/?path=/docs/ui-${registry}-${item.name.replace("-story", "")}--docs`}
+            href={`${getBaseUrl()}/storybook/?path=/docs/ui-radix-${item.name.replace("-story", "")}--docs`}
           >
             Story
           </a>

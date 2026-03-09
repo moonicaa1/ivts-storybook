@@ -26,7 +26,7 @@ const preview: Preview = {
         method: "alphabetical",
         order: [
           "Introduction",
-          "Category",
+          "List",
           "Token",
           "Component",
           "Pattern",

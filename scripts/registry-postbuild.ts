@@ -1,10 +1,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const targets = [
-  join(process.cwd(), "public", "v3", "radix"),
-  join(process.cwd(), "public", "v3", "base"),
-];
+const targets = [join(process.cwd(), "public", "v3", "radix")];
 
 const importPathPattern = /@\/bases\/[^/]+\/components/g;
 

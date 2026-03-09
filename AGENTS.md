@@ -3,8 +3,7 @@
 ## Project Overview
 
 This is a shadcn/ui Storybook registry focused on component documentation and
-distribution. The registry now ships separate Base UI and Radix UI story sets,
-with v3 outputs for each registry.
+distribution. The registry ships Radix UI story sets with v3 output.
 
 ## Quick Commands
 
@@ -21,25 +20,21 @@ with v3 outputs for each registry.
 
 ### File Structure
 
-- Stories: `registry/**/` with paired `*-base.stories.tsx` and
-  `*-radix.stories.tsx` files per story folder
-- Design tokens: `registry/tokens/**/` with base/radix story variants
-- Base/Radix implementations: `bases/{base,radix}/components/ui/*`
-- Registry configs: `registry.base.json` and `registry.radix.json`
-- Registry outputs: `public/v3/base` and `public/v3/radix`
+- Stories: `registry/**/` with `*-radix.stories.tsx` files per story folder
+- Design tokens: `registry/tokens/**/` with radix story variants
+- Radix implementation: `bases/radix/components/ui/*`
+- Registry config: `registry.radix.json`
+- Registry output: `public/v3/radix`
 
 ### Story Categories
 
-- `ui/base/ComponentName` - Base UI story variants
 - `ui/radix/ComponentName` - Radix UI story variants
-- `design/base/TokenName` - Base UI design token stories
 - `design/radix/TokenName` - Radix UI design token stories
 
 ### Story Naming & Documentation
 
-- Pair story files by registry suffix: `*-base.stories.tsx` and
-  `*-radix.stories.tsx`
-- Match story titles to the registry prefix (`ui/base/...` or `ui/radix/...`)
+- Story files use `*-radix.stories.tsx` suffix
+- Match story titles to the registry prefix (`ui/radix/...`)
 - Follow existing JSDoc comment pattern for each story export
 - Example:
   `/** Use the 'outline' button to reduce emphasis on secondary actions */`
@@ -51,10 +46,10 @@ with v3 outputs for each registry.
 
 ```typescript
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Component } from "@/bases/base/components/ui/component";
+import { Component } from "@/bases/radix/components/ui/component";
 
 const meta: Meta<typeof Component> = {
-  title: "ui/base/Component",
+  title: "ui/radix/Component",
   component: Component,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
@@ -83,8 +78,7 @@ type Story = StoryObj<typeof meta>;
 
 ### Imports
 
-- **Story imports**: use `@/bases/base/components/ui/` or
-  `@/bases/radix/components/ui/`
+- **Story imports**: use `@/bases/radix/components/ui/`
 - **Registry output**: postbuild rewrites `@/bases/*/components` to
   `@/components` for published JSON
 - **Framework**: `@storybook/nextjs-vite` for type imports
@@ -105,8 +99,7 @@ type Story = StoryObj<typeof meta>;
 
 ### Registry Entry
 
-Each story needs corresponding entry in `registry.base.json` or
-`registry.radix.json`:
+Each story needs corresponding entry in `registry.radix.json`:
 
 ```json
 {
@@ -118,7 +111,7 @@ Each story needs corresponding entry in `registry.base.json` or
   "dependencies": ["external-lib"],
   "files": [
     {
-      "path": "registry/ui/component-story/component-base.stories.tsx",
+      "path": "registry/ui/component-story/component-radix.stories.tsx",
       "type": "registry:component"
     }
   ]
@@ -152,12 +145,17 @@ Each story needs corresponding entry in `registry.base.json` or
 - Display both CSS variable names and computed values
 - Organize by functional vs component token types
 
+### Figma Token → CSS 변환
+
+Figma 토큰은 `/`로 그룹을 구분합니다. CSS custom property에는 `/`가 허용되지 않으므로
+**`/` → `-`** 변환 후 사용합니다. 예: `--base/background` → `--base-background`
+
 ## Important Notes
 
-- **Focus on registry development**: Most work lives in `registry/`, but Base
-  and Radix component implementations live under `bases/`
-- **Registry builds**: run `bun run registry:build` to generate both v3
-  registries and apply postbuild import rewrites
+- **Focus on registry development**: Most work lives in `registry/`, Radix
+  component implementation lives under `bases/radix/`
+- **Registry builds**: run `bun run registry:build` to generate v3/radix
+  registry and apply postbuild import rewrites
 - **Maintain consistency**: Follow existing patterns in story structure and
   naming
 - **Test interactivity**: Add play functions for components with state changes

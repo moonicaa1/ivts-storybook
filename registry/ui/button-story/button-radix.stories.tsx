@@ -188,7 +188,7 @@ export const IconAccessible: Story = {
           <Trash2 />
         </Button>
       </div>
-      <span style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+      <span style={{ fontSize: "12px", color: "var(--base-muted-foreground)" }}>
         텍스트 없는 아이콘 버튼 — aria-label 지정됨
       </span>
     </div>
@@ -208,7 +208,7 @@ export const RTLDirection: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <div>
-        <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "8px" }}>
+        <p style={{ fontSize: "11px", color: "var(--base-muted-foreground)", marginBottom: "8px" }}>
           LTR (기본)
         </p>
         <Button>
@@ -216,7 +216,7 @@ export const RTLDirection: Story = {
         </Button>
       </div>
       <div dir="rtl">
-        <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "8px" }}>
+        <p style={{ fontSize: "11px", color: "var(--base-muted-foreground)", marginBottom: "8px" }}>
           RTL — 아이콘이 오른쪽으로 자동 이동
         </p>
         <Button>
@@ -238,7 +238,7 @@ export const TruncatedText: Story = {
       <Button className="max-w-[160px]">
         <span className="truncate">매우 긴 버튼 레이블 텍스트입니다</span>
       </Button>
-      <span style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+      <span style={{ fontSize: "12px", color: "var(--base-muted-foreground)" }}>
         max-w-[160px] + truncate 적용
       </span>
     </div>
@@ -289,7 +289,7 @@ export const AsyncSubmit: Story = {
           {loading ? "저장 중..." : done ? "✓ 저장 완료" : "변경 사항 저장"}
         </Button>
         {!loading && (
-          <span style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+          <span style={{ fontSize: "12px", color: "var(--base-muted-foreground)" }}>
             클릭하면 2초 후 완료됩니다
           </span>
         )}
@@ -312,7 +312,7 @@ export const ActionPair: Story = {
         gap: "8px",
         justifyContent: "flex-end",
         padding: "16px",
-        border: "1px dashed var(--border)",
+        border: "1px dashed var(--base-border)",
         borderRadius: "8px",
         width: "320px",
       }}
@@ -349,7 +349,7 @@ export const DestructiveConfirm: Story = {
     if (step === "done") {
       return (
         <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "center" }}>
-          <span style={{ fontSize: "14px", color: "var(--muted-foreground)" }}>삭제가 완료됐습니다.</span>
+          <span style={{ fontSize: "14px", color: "var(--base-muted-foreground)" }}>삭제가 완료됐습니다.</span>
           <Button variant="outline" size="sm" onClick={() => setStep("idle")}>
             초기화
           </Button>
@@ -361,7 +361,7 @@ export const DestructiveConfirm: Story = {
       return (
         <div
           style={{
-            border: "1px solid var(--border)",
+            border: "1px solid var(--base-border)",
             borderRadius: "10px",
             padding: "20px",
             width: "280px",
@@ -371,7 +371,7 @@ export const DestructiveConfirm: Story = {
           }}
         >
           <p style={{ fontSize: "14px", fontWeight: 600, margin: 0 }}>정말 삭제하시겠습니까?</p>
-          <p style={{ fontSize: "13px", color: "var(--muted-foreground)", margin: 0 }}>
+          <p style={{ fontSize: "13px", color: "var(--base-muted-foreground)", margin: 0 }}>
             이 작업은 되돌릴 수 없습니다.
           </p>
           <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>

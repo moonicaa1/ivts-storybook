@@ -1,4 +1,4 @@
-﻿import { useMemo } from "react";
+import { useMemo } from "react";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import {
   Area,
@@ -33,11 +33,11 @@ const multiSeriesData = [
 const multiSeriesConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "var(--base-chart-1)",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "var(--base-chart-2)",
   },
 } satisfies ChartConfig;
 
@@ -53,15 +53,15 @@ const singleSeriesConfig = {
   },
   chrome: {
     label: "Chrome",
-    color: "var(--chart-1)",
+    color: "var(--base-chart-1)",
   },
   safari: {
     label: "Safari",
-    color: "var(--chart-2)",
+    color: "var(--base-chart-2)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-5)",
+    color: "var(--base-chart-5)",
   },
 } satisfies ChartConfig;
 

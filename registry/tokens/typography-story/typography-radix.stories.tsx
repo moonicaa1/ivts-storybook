@@ -1,4 +1,4 @@
-﻿import {
+import {
   Table,
   TableBody,
   TableCell,
@@ -26,18 +26,30 @@ const TypographyRow = ({
   styleKey: keyof CSSProperties;
   children?: ReactNode;
 }) => {
-  const style = window.getComputedStyle(document.body);
-  const styleValue = style.getPropertyValue(value);
+  const isVar = value.startsWith("--");
+  const styleValue = isVar ? `var(${value})` : value;
+  const resolved = isVar
+    ? getComputedStyle(document.documentElement).getPropertyValue(value) ||
+      styleValue
+    : value;
+
   return (
     <TableRow>
       <TableCell>{name}</TableCell>
       <TableCell>
-        {styleValue.split(",").map((v, idx) => (
-          <p key={`prop-${idx}`}>{v}</p>
-        ))}
+        {String(resolved)
+          .split(",")
+          .map((v, idx) => (
+            <p key={`prop-${idx}`}>{v.trim()}</p>
+          ))}
       </TableCell>
       <TableCell>
-        <div style={{ [styleKey]: styleValue }} className="line-clamp-1">
+        <div
+          style={{
+            [styleKey]: styleValue as CSSProperties[typeof styleKey],
+          }}
+          className="line-clamp-1"
+        >
           {children}
         </div>
       </TableCell>
@@ -97,7 +109,6 @@ export const FontFamily: Story = {
     key: "fontFamily",
     property: [
       { name: "sans", value: "--font-sans" },
-      { name: "serif", value: "--font-serif" },
       { name: "mono", value: "--font-mono" },
     ],
   },
@@ -105,58 +116,43 @@ export const FontFamily: Story = {
 
 /**
  * Font size tokens for the design system.
+ * Figma format: --text/xs/font-size, --text/sm/font-size
  */
 export const FontSize: Story = {
   args: {
     key: "fontSize",
     property: [
-      { name: "xs", value: "--text-xs" },
-      { name: "sm", value: "--text-sm" },
-      { name: "base", value: "--text-base" },
-      { name: "lg", value: "--text-lg" },
-      { name: "xl", value: "--text-xl" },
-      { name: "2xl", value: "--text-2xl" },
-      { name: "3xl", value: "--text-3xl" },
-      { name: "4xl", value: "--text-4xl" },
-      { name: "5xl", value: "--text-5xl" },
-      { name: "6xl", value: "--text-6xl" },
+      { name: "xs", value: "--text-xs-font-size" },
+      { name: "sm", value: "--text-sm-font-size" },
     ],
   },
 };
 
 /**
- * Font weight tokens for the design system.
+ * Font weight tokens - Tailwind defaults (if available).
  */
 export const FontWeight: Story = {
   args: {
     key: "fontWeight",
     property: [
-      { name: "thin", value: "--font-weight-thin" },
-      { name: "extralight", value: "--font-weight-extralight" },
-      { name: "light", value: "--font-weight-light" },
-      { name: "normal", value: "--font-weight-normal" },
-      { name: "medium", value: "--font-weight-medium" },
-      { name: "semibold", value: "--font-weight-semibold" },
-      { name: "bold", value: "--font-weight-bold" },
-      { name: "extrabold", value: "--font-weight-extrabold" },
-      { name: "black", value: "--font-weight-black" },
+      { name: "normal", value: "400" },
+      { name: "medium", value: "500" },
+      { name: "semibold", value: "600" },
+      { name: "bold", value: "700" },
     ],
   },
 };
 
 /**
- * Letter Spacing tokens for the design system.
+ * Letter Spacing tokens - Tailwind defaults (if available).
  */
 export const LetterSpacing: Story = {
   args: {
     key: "letterSpacing",
     property: [
-      { name: "tighter", value: "--tracking-tighter" },
-      { name: "tight", value: "--tracking-tight" },
-      { name: "normal", value: "--tracking-normal" },
-      { name: "wide", value: "--tracking-wide" },
-      { name: "wider", value: "--tracking-wider" },
-      { name: "widest", value: "--tracking-widest" },
+      { name: "tight", value: "-0.025em" },
+      { name: "normal", value: "0em" },
+      { name: "wide", value: "0.025em" },
     ],
   },
 };

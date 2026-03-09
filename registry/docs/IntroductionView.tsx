@@ -81,45 +81,57 @@ export function IntroductionView() {
         <img
           src="/intro-banner.png"
           alt="Inventis Design System"
-          style={{
-            width: "100%", borderRadius: "12px",
-            marginBottom: "48px", display: "block",
-            border: "1px solid #f4f4f5",
-          }}
+        style={{
+          width: "100%", borderRadius: "12px",
+          marginBottom: "24px", display: "block",
+          border: "1px solid #f4f4f5",
+        }}
         />
 
-        {/* ── Goal */}
-        <div style={{ paddingBottom: "32px", borderBottom: "1px solid #f4f4f5", marginBottom: "40px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
-            <SparklesIcon style={{ width: 16, height: 16, color: "#71717a" }} />
-            <span style={{ fontSize: "11px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Goal
-            </span>
+        {/* ── Stats (컴포넌트 갯수 카운터) - 이미지 바로 아래 */}
+        <div style={{ marginBottom: "48px" }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1px", background: "#f4f4f5",
+            borderRadius: "12px", overflow: "hidden",
+            border: "1px solid #f4f4f5",
+          }}>
+            {STATS.map(({ value, label }) => (
+              <div key={label} style={{ background: "#ffffff", padding: "28px 24px", textAlign: "center" }}>
+                <div style={{ fontSize: "32px", fontWeight: 700, color: "#09090b", letterSpacing: "-0.04em", lineHeight: 1 }}>
+                  {value}
+                </div>
+                <div style={{ fontSize: "12px", color: "#a1a1aa", marginTop: "6px", fontWeight: 400 }}>
+                  {label}
+                </div>
+              </div>
+            ))}
           </div>
-          <h2 style={{ margin: "0 0 14px", fontSize: "22px", fontWeight: 700, color: "#09090b", letterSpacing: "-0.02em" }}>
-            왜 디자인 시스템이 필요한가
+        </div>
+
+        {/* ── Goal */}
+        <div style={{ paddingBottom: "32px", marginBottom: "40px" }}>
+          <h2 className="sb-docs-section-title" style={{ margin: "0 0 28px", fontSize: "20px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em" }}>
+            Design System Goal
           </h2>
-          <p style={{ margin: "0 0 10px", fontSize: "15px", color: "#52525b", lineHeight: 1.75 }}>
+          <p style={{ margin: "0 0 12px", fontSize: "15px", color: "#52525b", lineHeight: 1.9, fontWeight: 400 }}>
             In a context where the service is expanding rapidly and headcount is
             increasing, we aimed to implement a consistent UI/UX and enhance the
             efficiency of communications that occur repeatedly without clear
             guidelines.
           </p>
-          <p style={{ margin: 0, fontSize: "14px", color: "#a1a1aa", lineHeight: 1.75 }}>
+          <p style={{ margin: 0, fontSize: "14px", color: "#71717a", lineHeight: 1.9, fontWeight: 400 }}>
             서비스 성장과 조직 규모 확대에 따라 디자인 일관성을 유지하고, 뚜렷한
             기준이 없어 비효율적으로 반복되는 커뮤니케이션을 개선하기 위한 통합
             시스템입니다.
           </p>
         </div>
 
-        {/* ── Principles */}
+        {/* ── Principles (Design System Goal와 동일 스타일) */}
         <div style={{ marginBottom: "48px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
-            <CubeTransparentIcon style={{ width: 16, height: 16, color: "#71717a" }} />
-            <span style={{ fontSize: "11px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Principles
-            </span>
-          </div>
+          <h2 className="sb-docs-section-title" style={{ margin: "0 0 36px", fontSize: "20px", fontWeight: 600, color: "#71717a", letterSpacing: "0.08em" }}>
+            Principles
+          </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
             {PRINCIPLES.map(({ Icon, en, ko, desc, color }) => (
@@ -140,32 +152,11 @@ export function IntroductionView() {
                 </div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: "6px", marginBottom: "6px" }}>
                   <strong style={{ fontSize: "14px", fontWeight: 600, color: "#09090b" }}>{en}</strong>
-                  <span style={{ fontSize: "12px", color: "#a1a1aa" }}>{ko}</span>
+                  <span style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: 400 }}>{ko}</span>
                 </div>
-                <p style={{ margin: 0, fontSize: "13px", color: "#71717a", lineHeight: 1.65 }}>
+                <p style={{ margin: 0, fontSize: "13px", color: "#71717a", lineHeight: 1.65, fontWeight: 400 }}>
                   {desc}
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Stats */}
-        <div style={{ borderTop: "1px solid #f4f4f5", paddingTop: "40px" }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1px", background: "#f4f4f5",
-            borderRadius: "12px", overflow: "hidden",
-            border: "1px solid #f4f4f5",
-          }}>
-            {STATS.map(({ value, label }) => (
-              <div key={label} style={{ background: "#ffffff", padding: "28px 24px", textAlign: "center" }}>
-                <div style={{ fontSize: "32px", fontWeight: 700, color: "#09090b", letterSpacing: "-0.04em", lineHeight: 1 }}>
-                  {value}
-                </div>
-                <div style={{ fontSize: "12px", color: "#a1a1aa", marginTop: "6px", fontWeight: 500 }}>
-                  {label}
-                </div>
               </div>
             ))}
           </div>
