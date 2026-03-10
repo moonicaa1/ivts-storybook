@@ -127,6 +127,25 @@ npx shadcn@latest add ${exampleUrl}`}
               .map((item) => (
                 <RegistryItemRow key={item.name} item={item} />
               ))}
+            <TableRow className="hover:bg-background border-b-0">
+              <TableCell className="pt-8 text-xs uppercase">
+                Page <span className="text-muted-foreground">Examples</span>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="font-medium">Dashboard</TableCell>
+              <TableCell>
+                <Button variant="link" asChild>
+                  <a href="/dashboard">Link</a>
+                </Button>
+              </TableCell>
+              <TableCell>
+                <Button variant="link" asChild>
+                  <a href="/dashboard">View</a>
+                </Button>
+              </TableCell>
+              <TableCell className="text-muted-foreground text-xs">—</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </main>

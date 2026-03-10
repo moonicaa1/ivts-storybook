@@ -19,6 +19,24 @@ const eslintConfig = [
       "react-hooks/purity": "warn",
     },
   },
+  // registry/docs, registry/page: 허용된 컴포넌트·토큰만 사용
+  {
+    files: ["registry/docs/**/*.tsx", "registry/page/**/*.tsx"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["radix-ui", "@radix-ui/*"],
+              message:
+                "Use @/bases/radix/components/ui/* instead of direct Radix imports",
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;

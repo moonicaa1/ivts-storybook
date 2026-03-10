@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-page",
+  "title": "Dashboard Page",
+  "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+  "description": "Service Advisor dashboard page example",
+  "dependencies": [
+    "lucide-react",
+    "next-themes"
+  ],
+  "registryDependencies": [
+    "sidebar",
+    "card",
+    "button",
+    "badge",
+    "table"
+  ],
+  "files": [
+    {
+      "path": "registry/page/dashboard/dashboard-radix.stories.tsx",
+      "content": "\"use client\";\r\n\r\nimport type { Meta, StoryObj } from \"@storybook/nextjs-vite\";\r\nimport { ThemeProvider } from \"next-themes\";\r\nimport { DashboardLayout } from \"./dashboard-layout\";\r\nimport { DashboardContent } from \"./dashboard-content\";\r\n\r\nconst meta = {\r\n  title: \"Page/Dashboard\",\r\n  tags: [\"!autodocs\"],\r\n  parameters: {\r\n    layout: \"fullscreen\",\r\n  },\r\n  decorators: [\r\n    (Story) => (\r\n      <ThemeProvider\r\n        attribute=\"class\"\r\n        defaultTheme=\"light\"\r\n        disableTransitionOnChange\r\n      >\r\n        <Story />\r\n      </ThemeProvider>\r\n    ),\r\n  ],\r\n} satisfies Meta;\r\n\r\nexport default meta;\r\n\r\ntype Story = StoryObj<typeof meta>;\r\n\r\nexport const Default: Story = {\r\n  render: () => (\r\n    <div className=\"min-h-svh\">\r\n      <DashboardLayout>\r\n        <DashboardContent />\r\n      </DashboardLayout>\r\n    </div>\r\n  ),\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "page",
+    "storybook",
+    "dashboard"
+  ],
+  "type": "registry:component"
+}

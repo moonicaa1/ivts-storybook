@@ -11,7 +11,7 @@
       "description": "Interactive Storybook stories demonstrating accordion component usage and variants",
       "categories": ["ui", "storybook", "accordion", "layout"],
       "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
-      "registryDependencies": ["accordion"],
+      "registryDependencies": ["accordion", "card"],
       "files": [
         {
           "path": "registry/ui/accordion-story/accordion-radix.stories.tsx",
@@ -963,6 +963,38 @@
       "files": [
         {
           "path": "registry/tokens/typography-story/typography-radix.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-pattern",
+      "type": "registry:component",
+      "title": "Sidebar Pattern",
+      "description": "Figma-spec sidebar pattern with header, platform menu, projects, footer",
+      "categories": ["pattern", "storybook", "sidebar", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["sidebar", "collapsible", "avatar", "dropdown-menu"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/sidebar-pattern.stories.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-page",
+      "type": "registry:component",
+      "title": "Dashboard Page",
+      "description": "Service Advisor dashboard page example",
+      "categories": ["page", "storybook", "dashboard"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["sidebar", "card", "button", "badge", "table"],
+      "dependencies": ["lucide-react", "next-themes"],
+      "files": [
+        {
+          "path": "registry/page/dashboard/dashboard-radix.stories.tsx",
           "type": "registry:component"
         }
       ]
