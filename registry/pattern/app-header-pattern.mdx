@@ -1,0 +1,113 @@
+import { Meta, Canvas, Controls, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as AppHeaderStories from "./app-header-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  AppHeaderCodeStructureTable,
+  AppHeaderVariantsTable,
+} from "./AppHeaderPatternDocs";
+import {
+  FIGMA_HEADER_DOC_NODE_IDS,
+  figmaHeaderNodeUrl,
+  FIGMA_HEADER_VARIANTS_SECTION,
+} from "./app-header/figma";
+
+<Meta of={AppHeaderStories} />
+
+# App Header <Badge status="Stable" />
+
+<MetaRow id="PT-HD-01" />
+
+Inventis DS **앱 상단 헤더** 패턴입니다. Figma에 흩어져 보이는 여러 노드는 서로
+다른 컴포넌트가 아니라 **동일 ❖ Header 심볼의 `Type` 프로퍼티**와 스펙/예시
+라벨로 묶입니다. 구현은 `InventisAppHeader` 하나에 `variant` 로 세 가지 행을
+표현합니다.
+
+**Variants 프레임:**
+[node 26762-314488](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26762-314488&m=dev)
+
+---
+
+## Playground
+
+`variant` · `globalSearch` · `showCreate` 를 Controls에서 바꿔 확인하세요.
+`SidebarTrigger` 는 **`SidebarProvider` + `Sidebar`** 와 함께 써야 합니다.
+
+<Canvas of={AppHeaderStories.Default} sourceState="hidden" />
+<Controls of={AppHeaderStories.Default} />
+
+---
+
+## Variants (시각)
+
+<AppHeaderVariantsTable />
+
+<Canvas of={AppHeaderStories.Breadcrumb} sourceState="closed" />
+
+<Canvas of={AppHeaderStories.Window} sourceState="closed" />
+
+---
+
+## `createOpen` (Figma 라벨)
+
+Figma의 **`createOpen`** 노드는 별도 UI가 아니라, **Create 관련
+오버레이·플로우를 연 상태**를 문서화한 라벨입니다. 앱에서는 `showCreate` 와
+`onCreateClick` 으로 모달·시트·라우트 등 원하는 패턴에 연결하면 됩니다.
+
+---
+
+## 코드 구조
+
+<AppHeaderCodeStructureTable />
+
+- **Breadcrumb** 행: `breadcrumbs` prop (기본값은
+  `defaultInventisHeaderBreadcrumbs`).
+- **Window** 행: `windowTabs` + `onTabClose` · `onNewWindowClick` ·
+  `onTabMenuClick`(ellipsis).
+- **검색**: 데모용 트리거 버튼입니다. 실제 앱에서는 `onSearchClick` 에서 커맨드
+  팔레트 등을 열면 됩니다.
+
+---
+
+## Figma 독스 노드 (참고)
+
+디자인 파일의 Example / Properties / NavItem 스펙 등은 아래 node-id 로
+동기화·검증할 때 참고하세요. 구현 축은 Variants 섹션
+(<code>{FIGMA_HEADER_VARIANTS_SECTION}</code>) 의 세 <code>Type</code> 입니다.
+
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+    margin: "16px 0",
+  }}
+>
+  <thead>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <th style={{ textAlign: "left", padding: "8px 12px", width: "36%" }}>
+        node-id
+      </th>
+      <th style={{ textAlign: "left", padding: "8px 12px" }}>링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    {FIGMA_HEADER_DOC_NODE_IDS.map((id) => (
+      <tr key={id} style={{ borderBottom: "1px solid var(--border)" }}>
+        <td style={{ padding: "8px 12px" }}>
+          <code style={{ fontSize: "12px" }}>{id.replace(":", "-")}</code>
+        </td>
+        <td style={{ padding: "8px 12px" }}>
+          <a href={figmaHeaderNodeUrl(id)} target="_blank" rel="noreferrer">
+            Open in Figma
+          </a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+---
+
+## Props
+
+<ArgTypes of={AppHeaderStories} />

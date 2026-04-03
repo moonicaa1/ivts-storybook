@@ -18,13 +18,15 @@
     "registry:build": "npm run registry:build-radix && npm run registry:postbuild",
     "registry:build-radix": "shadcn build registry.radix.json -o ./public/v3/radix",
     "registry:postbuild": "node scripts/registry-postbuild.ts",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --host 0.0.0.0",
     "storybook:build": "storybook build -o storybook-static",
     "storybook:test": "test-storybook",
     "build-storybook": "storybook build -o storybook-static"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/utilities": "^3.2.2",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-form": "^1.28.0",

@@ -23,14 +23,15 @@ const SwatchList = ({ colors }: { colors: Record<string, string> }) => {
           className="bg-background flex w-full flex-col gap-1 pb-3"
         >
           <div
-            className="h-16 w-full border border-border"
+            className="border-border h-16 w-full border"
             style={{ backgroundColor: `var(${value})` }}
           />
           <p className="text-center font-semibold">{name}</p>
           <p className="text-center text-xs opacity-70">{value}</p>
           <p className="text-center text-xs">
-            {getComputedStyle(document.documentElement).getPropertyValue(value) ||
-              `var(${value})`}
+            {getComputedStyle(document.documentElement).getPropertyValue(
+              value,
+            ) || `var(${value})`}
           </p>
         </div>
       ))}
@@ -84,43 +85,43 @@ export const Functional: Story = {
       {
         name: "Background",
         colors: {
-          default: "--base-background",
-          foreground: "--base-foreground",
+          default: "--background",
+          foreground: "--foreground",
         },
       },
       {
         name: "Primary",
         colors: {
-          default: "--base-primary",
-          foreground: "--base-primary-foreground",
+          default: "--primary",
+          foreground: "--primary-foreground",
         },
       },
       {
         name: "Secondary",
         colors: {
-          default: "--base-secondary",
-          foreground: "--base-secondary-foreground",
+          default: "--secondary",
+          foreground: "--secondary-foreground",
         },
       },
       {
         name: "Accent",
         colors: {
-          default: "--base-accent",
-          foreground: "--base-accent-foreground",
+          default: "--accent",
+          foreground: "--accent-foreground",
         },
       },
       {
         name: "Muted",
         colors: {
-          default: "--base-muted",
-          foreground: "--base-muted-foreground",
+          default: "--muted",
+          foreground: "--muted-foreground",
         },
       },
 
       {
         name: "Destructive",
         colors: {
-          default: "--base-destructive",
+          default: "--destructive",
         },
       },
     ],
@@ -137,51 +138,51 @@ export const Component: Story = {
       {
         name: "Border",
         colors: {
-          default: "--base-border",
-          ring: "--base-ring",
+          default: "--border",
+          ring: "--ring",
         },
       },
       {
         name: "Card",
         colors: {
-          default: "--base-card",
-          foreground: "--base-card-foreground",
+          default: "--card",
+          foreground: "--card-foreground",
         },
       },
       {
         name: "Input",
         colors: {
-          default: "--base-input",
+          default: "--input",
         },
       },
       {
         name: "Popover",
         colors: {
-          default: "--base-popover",
-          foreground: "--base-popover-foreground",
+          default: "--popover",
+          foreground: "--popover-foreground",
         },
       },
       {
         name: "Chart",
         colors: {
-          "1": "--base-chart-1",
-          "2": "--base-chart-2",
-          "3": "--base-chart-3",
-          "4": "--base-chart-4",
-          "5": "--base-chart-5",
+          "1": "--chart-1",
+          "2": "--chart-2",
+          "3": "--chart-3",
+          "4": "--chart-4",
+          "5": "--chart-5",
         },
       },
       {
         name: "Sidebar",
         colors: {
-          background: "--base-sidebar",
-          foreground: "--base-sidebar-foreground",
-          primary: "--base-sidebar-primary",
-          "primary-foreground": "--base-sidebar-primary-foreground",
-          accent: "--base-sidebar-accent",
-          "accent-foreground": "--base-sidebar-accent-foreground",
-          border: "--base-sidebar-border",
-          ring: "--base-sidebar-ring",
+          background: "--sidebar",
+          foreground: "--sidebar-foreground",
+          primary: "--sidebar-primary",
+          "primary-foreground": "--sidebar-primary-foreground",
+          accent: "--sidebar-accent",
+          "accent-foreground": "--sidebar-accent-foreground",
+          border: "--sidebar-border",
+          ring: "--sidebar-ring",
         },
       },
     ],

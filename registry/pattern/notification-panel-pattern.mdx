@@ -1,0 +1,109 @@
+import { Meta, Canvas, Controls, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as NotificationPanelStories from "./notification-panel-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  NotificationPanelCodeStructureTable,
+  NotificationPanelVariantsTable,
+} from "./NotificationPanelPatternDocs";
+import {
+  FIGMA_NOTIFICATION_DOC_NODE_IDS,
+  FIGMA_NOTIFICATION_VARIANTS_SECTION,
+  figmaNotificationNodeUrl,
+} from "./notification-panel/figma";
+
+<Meta of={NotificationPanelStories} />
+
+# Notification Panel <Badge status="Stable" />
+
+<MetaRow id="PT-NP-01" />
+
+Inventis DS **알림·큐 레일 패널**입니다. Figma에 나온 여러 프레임은 **서로 다른
+컴포넌트가 아니라** 동일 ❖ Notification panel의 **`Property 1=` (Alert Center /
+Queue)** 와 문서용 라벨·예시로 묶입니다.
+
+**Variants:**
+[node 26791-101886](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26791-101886&m=dev)
+
+**독스 프레임 (Light / Dark):**
+[node 26791-101998](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26791-101998&m=dev)
+
+---
+
+## Playground
+
+<Canvas of={NotificationPanelStories.AlertCenter} sourceState="hidden" />
+<Controls of={NotificationPanelStories.AlertCenter} />
+
+---
+
+## Variants (시각)
+
+<NotificationPanelVariantsTable />
+
+<Canvas of={NotificationPanelStories.Queue} sourceState="closed" />
+
+<Canvas of={NotificationPanelStories.BesideMainChrome} sourceState="closed" />
+
+---
+
+## 코드 구조
+
+<NotificationPanelCodeStructureTable />
+
+- **Alert Center**: `messages` + `filterAlertCenterMessages` — 탭 `Unread` 는
+  `unread: true` 만 표시합니다.
+- **Queue**: `queueItems` + `filterQueueItems` — 탭은 데이터의
+  `queueTabKey`(`active` / `hold` / `completed`)로만 필터합니다. 카드 UI는
+  **Pattern/RO Card** 의 `InventisRoCard`(`type` · `statusLabel` 등)와
+  동일합니다.
+- 검색 필드는 UI 트리거용입니다. 실제 필터링은 `InputGroupInput` 의 `value` /
+  `onChange` 로 연결하세요.
+
+---
+
+## 요청하신 Figma node-id (참고)
+
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+    margin: "16px 0",
+  }}
+>
+  <thead>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <th style={{ textAlign: "left", padding: "8px 12px", width: "36%" }}>
+        node-id
+      </th>
+      <th style={{ textAlign: "left", padding: "8px 12px" }}>링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    {FIGMA_NOTIFICATION_DOC_NODE_IDS.map((id) => (
+      <tr key={id} style={{ borderBottom: "1px solid var(--border)" }}>
+        <td style={{ padding: "8px 12px" }}>
+          <code style={{ fontSize: "12px" }}>{id.replace(":", "-")}</code>
+        </td>
+        <td style={{ padding: "8px 12px" }}>
+          <a
+            href={figmaNotificationNodeUrl(id)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open in Figma
+          </a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+구현 검증 시 심볼은 <code>{FIGMA_NOTIFICATION_VARIANTS_SECTION}</code> 하위
+**Alert Center** / **Queue** 두 인스턴스를 기준으로 하면 됩니다.
+
+---
+
+## Props
+
+<ArgTypes of={NotificationPanelStories} />

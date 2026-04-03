@@ -1,0 +1,145 @@
+import { Meta, Canvas, Controls, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as NavigationSidebarStories from "./navigation-sidebar-pattern.stories";
+import {
+  Badge,
+  MetaRow,
+  Grid3,
+  VariantCard,
+} from "../ui/button-story/ButtonDocHelpers";
+import {
+  NavigationSidebarCodeStructureTable,
+  NavigationSidebarVariantsTable,
+} from "./NavigationSidebarPatternDocs";
+
+<Meta of={NavigationSidebarStories} />
+
+# Navigation Sidebar <Badge status="Stable" />
+
+<MetaRow id="PT-NV-01" />
+
+Inventis DS 앱 **네비게이션 사이드바** 패턴입니다. Figma에 나열된 여러 노드는
+서로 다른 패턴이 아니라 **동일 `Sidebar`의 프로퍼티·스펙**으로 묶여 있으며, 아래
+스토리는 시각적으로 **펼침 / 접힘** 두 가지만 구분합니다.
+
+**대표 프레임:**
+[Aside · node 26762-148088](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26762-148088&m=dev)
+
+---
+
+## Playground
+
+아래 Controls에서 `side`, `variant`, `collapsible` 를 바꿔 Figma와 동일한 API
+축을 확인할 수 있습니다.
+
+<Canvas of={NavigationSidebarStories.Expanded} sourceState="hidden" />
+<Controls of={NavigationSidebarStories.Expanded} />
+
+---
+
+## Variants (시각)
+
+<NavigationSidebarVariantsTable />
+
+<Canvas of={NavigationSidebarStories.Collapsed} sourceState="closed" />
+
+---
+
+## 코드 구조
+
+여러 Figma 노드는 **별도 패턴이 아니라** 동일 사이드바의 프로퍼티·스펙
+참고용입니다. node-id 상수는 구현·검증용으로만 `navigation-sidebar/figma.ts`
+(`FIGMA_NAVIGATION_SIDEBAR_NODE_IDS`)에 두었습니다.
+
+<NavigationSidebarCodeStructureTable />
+
+앱에서는 `model` prop으로 `defaultInventisNavigationModel`을 복사해
+라벨·`href`(라우팅 시 `Link` + `asChild`로 연결)를 바꿔 쓰면 됩니다. 스토리북
+캔버스는 Figma와 맞추어 **버튼**으로 렌더링합니다.
+
+---
+
+## `variant`
+
+<Grid3>
+  <VariantCard
+    variant="sidebar"
+    title="Sidebar"
+    desc="기본. 메인 콘텐츠와 좌·우로 분리됩니다."
+  >
+    <div style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+      sidebar
+    </div>
+  </VariantCard>
+  <VariantCard
+    variant="floating"
+    title="Floating"
+    desc="둥근 모서리·그림자로 떠 있는 형태입니다."
+  >
+    <div style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+      floating
+    </div>
+  </VariantCard>
+  <VariantCard
+    variant="inset"
+    title="Inset"
+    desc="메인 영역과 구분되는 인셋 레이아웃입니다."
+  >
+    <div style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+      inset
+    </div>
+  </VariantCard>
+</Grid3>
+
+---
+
+## `collapsible`
+
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+    margin: "16px 0",
+  }}
+>
+  <thead>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <th style={{ textAlign: "left", padding: "8px 12px", width: "120px" }}>
+        옵션
+      </th>
+      <th style={{ textAlign: "left", padding: "8px 12px" }}>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <td style={{ padding: "8px 12px" }}>
+        <code>offcanvas</code>
+      </td>
+      <td style={{ padding: "8px 12px", color: "var(--muted-foreground)" }}>
+        접으면 화면 밖으로 숨김
+      </td>
+    </tr>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <td style={{ padding: "8px 12px" }}>
+        <code>icon</code>
+      </td>
+      <td style={{ padding: "8px 12px", color: "var(--muted-foreground)" }}>
+        접으면 아이콘만 표시 (권장)
+      </td>
+    </tr>
+    <tr>
+      <td style={{ padding: "8px 12px" }}>
+        <code>none</code>
+      </td>
+      <td style={{ padding: "8px 12px", color: "var(--muted-foreground)" }}>
+        접기 비활성화
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Props (Sidebar)
+
+<ArgTypes of={NavigationSidebarStories} />

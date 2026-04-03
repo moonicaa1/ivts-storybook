@@ -1,0 +1,126 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as StatusBadgeStories from "./status-badge-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  FIGMA_STATUS_BADGE_FILE_BASE,
+  FIGMA_STATUS_BADGE_NODE,
+  FIGMA_STATUS_BADGE_NODE_IDS,
+  figmaStatusBadgeNodeUrl,
+} from "./status-badge/figma";
+
+export const figmaAnchorLinks = (
+  <p
+    style={{
+      fontSize: "14px",
+      color: "var(--muted-foreground)",
+      marginBottom: "12px",
+    }}
+  >
+    <strong>Figma 파일:</strong>{" "}
+    <a href={FIGMA_STATUS_BADGE_FILE_BASE} target="_blank" rel="noreferrer">
+      260303_Inventis-DS--Shadcn-ui
+    </a>
+    {" · "}
+    <a
+      href={figmaStatusBadgeNodeUrl(FIGMA_STATUS_BADGE_NODE.properties)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Properties (12색)
+    </a>
+    {" · "}
+    <a
+      href={figmaStatusBadgeNodeUrl(FIGMA_STATUS_BADGE_NODE.roCard)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      RO + 뱃지
+    </a>
+  </p>
+);
+
+export const figma24List = (
+  <details
+    style={{
+      fontSize: "13px",
+      color: "var(--muted-foreground)",
+      marginBottom: "16px",
+    }}
+  >
+    <summary style={{ cursor: "pointer", marginBottom: "8px" }}>
+      요청 24개 노드
+    </summary>
+    <ol
+      style={{ paddingLeft: "1.25rem", maxHeight: "200px", overflow: "auto" }}
+    >
+      {FIGMA_STATUS_BADGE_NODE_IDS.map((id) => (
+        <li key={id}>
+          <a
+            href={figmaStatusBadgeNodeUrl(id)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {id}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </details>
+);
+
+<Meta of={StatusBadgeStories} />
+
+# Status Badge <Badge status="Stable" />
+
+<MetaRow id="PT-SB-01" />
+
+소프트 배경 + 채도 있는 텍스트 12색. RO 카드·타임라인 등 상태 표시에 사용합니다.
+
+{figmaAnchorLinks} {figma24List}
+
+---
+
+## Properties
+
+<Canvas
+  of={StatusBadgeStories.Properties}
+  layout="padded"
+  story={{ inline: false, height: "560px" }}
+  sourceState="closed"
+/>
+
+## RO · context
+
+<Canvas
+  of={StatusBadgeStories.RoContext}
+  layout="padded"
+  story={{ inline: false, height: "320px" }}
+  sourceState="closed"
+/>
+
+## Pattern
+
+<Canvas
+  of={StatusBadgeStories.Pattern}
+  layout="fullscreen"
+  story={{ inline: false, height: "360px" }}
+  sourceState="closed"
+/>
+
+## Examples
+
+<Canvas
+  of={StatusBadgeStories.Examples}
+  layout="padded"
+  story={{ inline: false, height: "360px" }}
+  sourceState="closed"
+/>
+
+## Figma frames (24)
+
+<Canvas
+  of={StatusBadgeStories.FigmaFramesIndex}
+  layout="padded"
+  story={{ inline: false, height: "520px" }}
+  sourceState="closed"
+/>

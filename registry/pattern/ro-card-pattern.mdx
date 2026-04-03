@@ -1,0 +1,118 @@
+import { Meta, Canvas, Controls, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as RoCardStories from "./ro-card-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  RoCardCodeStructureTable,
+  RoCardVariantsTable,
+} from "./RoCardPatternDocs";
+import {
+  FIGMA_RO_CARD_DOC_NODE_IDS,
+  FIGMA_RO_CARD_VARIANTS_SECTION,
+  figmaRoCardNodeUrl,
+} from "./ro-card/figma";
+
+<Meta of={RoCardStories} />
+
+# RO Card <Badge status="Stable" />
+
+<MetaRow id="PT-RO-01" />
+
+Inventis DS **수리·작업 오더(RO) 카드** 패턴입니다. Figma의 9개 링크는
+**Variants + 문서·예시 페이지·라벨**로 묶이며, 구현 축은 **`Type=Default` ·
+`Action` · `Schedule`** 세 가지입니다.
+
+**스토리북 왼쪽 사이드바(북마크)** 에 보이는 스토리 이름·순서와 아래 표·캔버스가
+**동일**합니다: `Default` → `With Action Footer` → `Schedule` → `With Progress`.
+
+**Playground** 는 **Default** 스토리와 동일합니다 (`type="default"`, 칸반 폭
+~233px).
+
+**Variants:**
+[node 26837-1510](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26837-1510&m=dev)
+
+**독스:**
+[RO Card · 26837-1538](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26837-1538&m=dev)
+
+---
+
+## Playground
+
+<Canvas of={RoCardStories.Default} sourceState="hidden" />
+<Controls of={RoCardStories.Default} />
+
+---
+
+## Variants
+
+<RoCardVariantsTable />
+
+### Default
+
+<Canvas of={RoCardStories.Default} sourceState="closed" />
+
+### With Action Footer
+
+<Canvas of={RoCardStories.WithActionFooter} sourceState="closed" />
+
+### Schedule
+
+<Canvas of={RoCardStories.Schedule} sourceState="closed" />
+
+### With Progress
+
+<Canvas of={RoCardStories.WithProgress} sourceState="closed" />
+
+---
+
+## 코드 구조
+
+<RoCardCodeStructureTable />
+
+**Notification panel · Queue** 는 동일 컴포넌트(`InventisRoCard`)를 사용합니다.
+큐 탭(All / Active / On hold) 필터는 데이터의 `queueTabKey` 로만 구분하고,
+카드의 **Draft** 등 상태는 `statusLabel` + emerald 배지로 표시합니다.
+
+---
+
+## 요청 node-id (참고)
+
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+    margin: "16px 0",
+  }}
+>
+  <thead>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <th style={{ textAlign: "left", padding: "8px 12px", width: "36%" }}>
+        node-id
+      </th>
+      <th style={{ textAlign: "left", padding: "8px 12px" }}>링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    {FIGMA_RO_CARD_DOC_NODE_IDS.map((id) => (
+      <tr key={id} style={{ borderBottom: "1px solid var(--border)" }}>
+        <td style={{ padding: "8px 12px" }}>
+          <code style={{ fontSize: "12px" }}>{id.replace(":", "-")}</code>
+        </td>
+        <td style={{ padding: "8px 12px" }}>
+          <a href={figmaRoCardNodeUrl(id)} target="_blank" rel="noreferrer">
+            Open in Figma
+          </a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+심볼 기준: <code>{FIGMA_RO_CARD_VARIANTS_SECTION}</code> 하위 **Default / Action
+/ Schedule**.
+
+---
+
+## Props
+
+<ArgTypes of={RoCardStories} />

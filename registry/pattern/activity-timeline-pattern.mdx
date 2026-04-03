@@ -1,0 +1,129 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as ActivityTimelineStories from "./activity-timeline-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  FIGMA_ACTIVITY_TIMELINE_FILE_BASE,
+  FIGMA_ACTIVITY_TIMELINE_NODE,
+  figmaActivityTimelineNodeUrl,
+} from "./activity-timeline/figma";
+
+export const figmaLinks = (
+  <p
+    style={{
+      fontSize: "14px",
+      color: "var(--muted-foreground)",
+      marginBottom: "16px",
+    }}
+  >
+    <strong>Figma:</strong>{" "}
+    <a
+      href={FIGMA_ACTIVITY_TIMELINE_FILE_BASE}
+      target="_blank"
+      rel="noreferrer"
+    >
+      파일
+    </a>
+    {" · "}
+    <a
+      href={figmaActivityTimelineNodeUrl(FIGMA_ACTIVITY_TIMELINE_NODE.variants)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Variants
+    </a>
+    {" · "}
+    <a
+      href={figmaActivityTimelineNodeUrl(FIGMA_ACTIVITY_TIMELINE_NODE.pattern)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Pattern
+    </a>
+    {" · "}
+    <a
+      href={figmaActivityTimelineNodeUrl(
+        FIGMA_ACTIVITY_TIMELINE_NODE.properties,
+      )}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Properties
+    </a>
+  </p>
+);
+
+<Meta of={ActivityTimelineStories} />
+
+# Activity Timeline <Badge status="Stable" />
+
+<MetaRow id="PT-AT-01" />
+
+타임라인 마커 + 날짜 + 계약 페이즈(접기/펼치기). **Inline**은 제목 `Activity`
+포함, **in Card**는 테두리 카드 안에만 표시.
+
+{figmaLinks}
+
+---
+
+## in Card
+
+<Canvas
+  of={ActivityTimelineStories.InCard}
+  layout="padded"
+  story={{ inline: false, height: "420px" }}
+  sourceState="closed"
+/>
+
+## Inline
+
+<Canvas
+  of={ActivityTimelineStories.Inline}
+  layout="padded"
+  story={{ inline: false, height: "420px" }}
+  sourceState="closed"
+/>
+
+## Variants
+
+<Canvas
+  of={ActivityTimelineStories.Variants}
+  layout="padded"
+  story={{ inline: false, height: "480px" }}
+  sourceState="closed"
+/>
+
+## Properties
+
+<Canvas
+  of={ActivityTimelineStories.Properties}
+  layout="padded"
+  story={{ inline: false, height: "720px" }}
+  sourceState="closed"
+/>
+
+## Pattern
+
+<Canvas
+  of={ActivityTimelineStories.Pattern}
+  layout="fullscreen"
+  story={{ inline: false, height: "380px" }}
+  sourceState="closed"
+/>
+
+## Page · Vertical
+
+<Canvas
+  of={ActivityTimelineStories.PageVertical}
+  layout="fullscreen"
+  story={{ inline: false, height: "480px" }}
+  sourceState="closed"
+/>
+
+## Page · Horizontal
+
+<Canvas
+  of={ActivityTimelineStories.PageHorizontal}
+  layout="fullscreen"
+  story={{ inline: false, height: "440px" }}
+  sourceState="closed"
+/>

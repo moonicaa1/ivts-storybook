@@ -1,0 +1,95 @@
+---
+title: Pattern/Filter
+---
+
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as FilterStories from "./filter-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  FilterCodeStructureTable,
+  FilterVariantsTable,
+} from "./FilterPatternDocs";
+import { FIGMA_FILTER_FILE_BASE } from "./filter/figma";
+
+{/* `of={}` 생략: Windows에서 인덱서가 CSF 경로(슬래시)와 glob 절대경로(백슬래시)를 맞추지 못해 실패하는 경우가 있음. Introduction과 동일하게 unattached MDX. */}
+
+<Meta title="Pattern/Filter" />
+
+# Filter <Badge status="Stable" />
+
+<MetaRow id="PT-FL-01" />
+
+Inventis DS **보드·목록 상단 Filter** 행입니다. Figma `Filter`와 같은 구조로,
+**Day | Week** 탭, 날짜·세그먼트·기간 네비, **Search…** 행(+세그먼트·검색
+아이콘), **Filter (n)**, **Columns**, 캘린더/차트 **ToggleGroup**을 한 블록에
+배치합니다. shadcn 매핑은 `Tabs`, `ButtonGroup`, `Button`, `Input`,
+`ToggleGroup`입니다. **Pattern/Kanban** Playground·보드와 **동일
+컴포넌트**(`InventisFilterBar`)를 씁니다.
+
+**Figma:**{" "}
+
+<a href={FIGMA_FILTER_FILE_BASE} target="_blank" rel="noreferrer">
+  260303 Inventis DS (Shadcn ui)
+</a>
+
+---
+
+## Playground
+
+<Canvas of={FilterStories.Default} sourceState="hidden" />
+
+---
+
+## Variants (시각)
+
+<FilterVariantsTable />
+
+### Default
+
+<Canvas of={FilterStories.Default} sourceState="closed" />
+
+### Narrow wrap
+
+<Canvas of={FilterStories.NarrowWrap} sourceState="closed" />
+
+---
+
+## 코드 구조
+
+<FilterCodeStructureTable />
+
+---
+
+## Props
+
+스토리·칸반에서는 `useInventisFilterDemoState()` 가 `barProps` 로 상태와
+핸들러를 묶어 `InventisFilterBar`에 넘깁니다. 주요 props 요약:
+
+```tsx
+export type InventisFilterBarProps = {
+  timeScale: "day" | "week";
+  onTimeScaleChange: (v: "day" | "week") => void;
+  dateLabel: string;
+  dateToolbarSegments?: string[];
+  onDateToolbarSegmentClick?: (index: number) => void;
+  onDatePickerClick?: () => void;
+  periodLabel: string;
+  weekColumnLabels?: [string, string, string];
+  onPrevPeriod?: () => void;
+  onNextPeriod?: () => void;
+  searchPlaceholder?: string;
+  searchValue: string;
+  onSearchChange: (v: string) => void;
+  searchToolbarSegments?: string[];
+  onSearchToolbarSegmentClick?: (index: number) => void;
+  onSearchSubmit?: () => void;
+  activeFilterCount?: number;
+  onFilterClick?: () => void;
+  onColumnsClick?: () => void;
+  viewMode: "calendar" | "chart";
+  onViewModeChange: (v: "calendar" | "chart") => void;
+  className?: string;
+};
+```
+
+전체 정의는 `filter/InventisFilterBar.tsx` 를 참고하세요.

@@ -1,5 +1,7 @@
 "use client";
 
+import { Badge } from "@/bases/radix/components/ui/badge";
+import { Button } from "@/bases/radix/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,8 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/bases/radix/components/ui/card";
-import { Button } from "@/bases/radix/components/ui/button";
-import { Badge } from "@/bases/radix/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -18,7 +18,6 @@ import {
   TableRow,
 } from "@/bases/radix/components/ui/table";
 import { BarChart3, TrendingUp, Users } from "lucide-react";
-import React from "react";
 
 const STAT_CARDS = [
   {
@@ -54,7 +53,7 @@ const RECENT_ORDERS = [
 export function DashboardView() {
   return (
     <div
-      className="sb-unstyled min-h-screen bg-background text-foreground"
+      className="sb-unstyled bg-background text-foreground min-h-screen"
       style={{
         padding: "var(--spacing-12)",
         fontFamily:
@@ -93,25 +92,27 @@ export function DashboardView() {
             marginBottom: "var(--spacing-12)",
           }}
         >
-          {STAT_CARDS.map(({ title, value, change, description, icon: Icon }) => (
-            <Card key={title} size="sm">
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
-                  {title}
-                </CardTitle>
-                <Icon
-                  className="h-4 w-4 text-muted-foreground"
-                  style={{ color: "var(--base-muted-foreground)" }}
-                />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{value}</div>
-                <p className="text-xs text-muted-foreground">
-                  <span className="text-primary">{change}</span> {description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {STAT_CARDS.map(
+            ({ title, value, change, description, icon: Icon }) => (
+              <Card key={title} size="sm">
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                  <CardTitle className="text-muted-foreground text-sm font-medium">
+                    {title}
+                  </CardTitle>
+                  <Icon
+                    className="text-muted-foreground h-4 w-4"
+                    style={{ color: "var(--muted-foreground)" }}
+                  />
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{value}</div>
+                  <p className="text-muted-foreground text-xs">
+                    <span className="text-primary">{change}</span> {description}
+                  </p>
+                </CardContent>
+              </Card>
+            ),
+          )}
         </div>
 
         {/* Recent Orders */}

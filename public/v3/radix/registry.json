@@ -26,7 +26,7 @@
       "description": "Interactive Storybook stories demonstrating alert component usage and variants",
       "categories": ["ui", "storybook", "alert", "feedback"],
       "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
-      "registryDependencies": ["alert"],
+      "registryDependencies": ["alert", "button"],
       "dependencies": ["lucide-react"],
       "files": [
         {
@@ -968,17 +968,379 @@
       ]
     },
     {
-      "name": "sidebar-pattern",
+      "name": "navigation-sidebar-pattern",
       "type": "registry:component",
-      "title": "Sidebar Pattern",
-      "description": "Figma-spec sidebar pattern with header, platform menu, projects, footer",
+      "title": "Navigation Sidebar",
+      "description": "Inventis DS navigation sidebar; Figma nodes map to Sidebar props, not separate patterns",
       "categories": ["pattern", "storybook", "sidebar", "navigation"],
       "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
-      "registryDependencies": ["sidebar", "collapsible", "avatar", "dropdown-menu"],
+      "registryDependencies": ["sidebar", "dropdown-menu", "switch"],
       "dependencies": ["lucide-react"],
       "files": [
         {
-          "path": "registry/pattern/sidebar-pattern.stories.tsx",
+          "path": "registry/pattern/navigation-sidebar-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/navigation-sidebar/InventisNavigationSidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/navigation-sidebar/navigation-sidebar.config.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/navigation-sidebar/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/NavigationSidebarPatternDocs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-header-pattern",
+      "type": "registry:component",
+      "title": "App Header",
+      "description": "Inventis DS app header; Figma Header Type default / breadcrumb / window as one component",
+      "categories": ["pattern", "storybook", "header", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "breadcrumb",
+        "kbd",
+        "separator"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/app-header-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/app-header-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/app-header/InventisAppHeader.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/app-header/app-header.config.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/app-header/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/AppHeaderPatternDocs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "filter-pattern",
+      "type": "registry:component",
+      "title": "Filter",
+      "description": "Inventis DS board Filter bar; Tabs, ButtonGroup, Input, ToggleGroup; matches Kanban playground",
+      "categories": ["pattern", "storybook", "filter", "search"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "tabs",
+        "button-group",
+        "toggle-group",
+        "input",
+        "button"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/filter-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/filter-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/filter/InventisFilterBar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/filter/InventisSearchInputGroup.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/filter/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/FilterPatternDocs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tab-pattern",
+      "type": "registry:component",
+      "title": "Tab",
+      "description": "Inventis DS Tab pattern — 5 Figma frames (6787,6920,12391,6901,33252) + Playground; doc-only 26779-6899 Example bar & 26779-12390 Tab Flow strip excluded; InventisTabsLine for Line body",
+      "categories": ["pattern", "storybook", "tabs", "navigation"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["tabs"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/tab-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/tab-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/tab/InventisTabsFigmaFrames.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/tab/InventisTabsLine.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/tab/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/TabPatternDocs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ro-card-pattern",
+      "type": "registry:component",
+      "title": "RO Card",
+      "description": "Inventis DS repair order card; Figma Type Default / Action / Schedule",
+      "categories": ["pattern", "storybook", "ro", "queue"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button", "badge", "progress"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/ro-card-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/ro-card-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/ro-card/InventisRoCard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/ro-card/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/RoCardPatternDocs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "metric-card-pattern",
+      "type": "registry:component",
+      "title": "Metric Card",
+      "description": "Inventis DS metric (KPI) card; Figma Default/Compact, filter row min 2 max 4, Pattern light-dark",
+      "categories": ["pattern", "storybook", "dashboard", "kpi"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["badge"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/metric-card-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/metric-card-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/metric-card/InventisMetricCard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/metric-card/figma.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "activity-timeline-pattern",
+      "type": "registry:component",
+      "title": "Activity Timeline",
+      "description": "Inventis DS activity timeline; Figma Properties, Inline/in Card, Pattern light-dark, Vertical/Horizontal page",
+      "categories": ["pattern", "storybook", "timeline", "dashboard"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["badge", "collapsible"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/activity-timeline-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/activity-timeline-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/activity-timeline/InventisActivityTimeline.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/activity-timeline/figma.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "status-badge-pattern",
+      "type": "registry:component",
+      "title": "Status Badge",
+      "description": "Inventis DS status badge 12 soft colors; Figma Properties, RO context, Pattern",
+      "categories": ["pattern", "storybook", "badge", "status"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/status-badge-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/status-badge-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/status-badge/InventisStatusBadge.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/status-badge/figma.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "kanban-pattern",
+      "type": "registry:component",
+      "title": "Kanban",
+      "description": "Inventis DS kanban column; Figma Kanban/Header Cardwrap Footer Drag here, Collapsed prop",
+      "categories": ["pattern", "storybook", "kanban", "board"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "button",
+        "scroll-area",
+        "progress",
+        "badge",
+        "tabs",
+        "button-group",
+        "toggle-group",
+        "input"
+      ],
+      "dependencies": ["lucide-react", "@dnd-kit/core", "@dnd-kit/utilities"],
+      "files": [
+        {
+          "path": "registry/pattern/filter/InventisFilterBar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/filter/InventisSearchInputGroup.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban/InventisKanbanColumn.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban/KanbanPlaygroundDnd.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban/kanban-playground-initial.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/kanban/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/KanbanPatternDocs.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/ro-card/InventisRoCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "notification-panel-pattern",
+      "type": "registry:component",
+      "title": "Notification Panel",
+      "description": "Inventis DS alert center / queue rail panel; Figma Property 1 variants",
+      "categories": ["pattern", "storybook", "notification", "sidebar"],
+      "author": "Lloyd Richards <lloyd.d.richards@gmail.com>",
+      "registryDependencies": [
+        "tabs",
+        "input-group",
+        "input",
+        "badge",
+        "button",
+        "progress",
+        "scroll-area",
+        "kbd"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/pattern/notification-panel-pattern.stories.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/notification-panel-pattern.mdx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/notification-panel/InventisNotificationPanel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/notification-panel/notification-panel.config.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/notification-panel/figma.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/ro-card/InventisRoCard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pattern/NotificationPanelPatternDocs.tsx",
           "type": "registry:component"
         }
       ]

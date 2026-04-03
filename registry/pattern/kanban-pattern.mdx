@@ -1,0 +1,155 @@
+import { Meta, Canvas, Controls, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as KanbanStories from "./kanban-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  KanbanCodeStructureTable,
+  KanbanFigmaMappingTable,
+  KanbanVariantsTable,
+} from "./KanbanPatternDocs";
+import {
+  FIGMA_KANBAN_CONTEXT_MAXIMUM,
+  FIGMA_KANBAN_DOC_BOARD,
+  FIGMA_KANBAN_DOC_NODE_IDS,
+  FIGMA_KANBAN_VARIANTS_SECTION,
+  figmaKanbanNodeUrl,
+} from "./kanban/figma";
+
+<Meta of={KanbanStories} />
+
+# Kanban <Badge status="Stable" />
+
+<MetaRow id="PT-KB-01" />
+
+Inventis DS **칸반 열** 패턴입니다. Figma에 나열된 노드는 서로 다른 컴포넌트가
+아니라 **동일 ❖ Kanban 심볼**의 **`Collapsed`** · 서브 레이어(`Kanban/Header` ·
+`Kanban/Cardwrap` · `Kanban/Footer` · `Drag here`), 그리고 보드
+**컨텍스트**(Minimum / Maximum / OverFlow) 예시로 묶입니다. 카드 UI는
+**Pattern/RO Card** 의 `InventisRoCard`와 동일합니다.
+
+**스토리북 왼쪽 사이드바** 스토리 이름·순서와 아래 **Variants (시각)**
+표·캔버스가 동일합니다.
+
+**대표 프레임 (Playground):**{' '}
+
+<a
+  href={figmaKanbanNodeUrl(FIGMA_KANBAN_CONTEXT_MAXIMUM)}
+  target="_blank"
+  rel="noreferrer"
+>
+  Context Panel/Customer
+</a>
+(<code>{FIGMA_KANBAN_CONTEXT_MAXIMUM}</code>)
+
+**Variants:**
+[node 26791-108995](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26791-108995&m=dev)
+
+**독스 보드:**
+[node 26791-109043](https://www.figma.com/design/MvGuEwW5KUn5VcpSEWm2ve/260303_Inventis-DS--Shadcn-ui?node-id=26791-109043&m=dev)
+
+---
+
+## Playground
+
+Figma **Context Maximum** 고객 화면과 같은 맥락입니다: **Aside(64)** · 상단
+**Header** 스텁 · **Head Wrapper**(뒤로/제목/액션 버튼) · **Filter**
+(`InventisFilterBar`, **Pattern/Filter**와 동일) · **5열** 칸반, 각 열에는 **RO
+카드**·**Total** 푸터·**Drag here** 가 채워져 있습니다. **카드 본문**을
+드래그하면 **다른 열**(또는 같은 열의 맨 아래)로 옮길 수 있습니다
+(`@dnd-kit/core`). 헤더 **⋯** 메뉴는 클릭만 되도록 분리되어 있습니다.
+
+<Canvas of={KanbanStories.Playground} sourceState="hidden" />
+
+---
+
+## 단일 열 (Controls)
+
+`InventisKanbanColumn` 의 props(`title` · `footer` · `showDragHere` 등)는
+아래에서 조정합니다.
+
+<Canvas of={KanbanStories.Expanded} sourceState="hidden" />
+<Controls of={KanbanStories.Expanded} />
+
+---
+
+## Variants (시각)
+
+<KanbanVariantsTable />
+
+### Expanded
+
+<Canvas of={KanbanStories.Expanded} sourceState="closed" />
+
+### Collapsed
+
+<Canvas of={KanbanStories.Collapsed} sourceState="closed" />
+
+### With RO cards
+
+<Canvas of={KanbanStories.WithRoCards} sourceState="closed" />
+
+### Board minimum
+
+<Canvas of={KanbanStories.BoardMinimum} sourceState="closed" />
+
+### Board maximum
+
+<Canvas of={KanbanStories.BoardMaximum} sourceState="closed" />
+
+### Board overflow
+
+<Canvas of={KanbanStories.BoardOverflow} sourceState="closed" />
+
+---
+
+## 코드 구조
+
+<KanbanCodeStructureTable />
+
+### Figma → 코드
+
+<KanbanFigmaMappingTable />
+
+---
+
+## Figma 독스 노드 (참고)
+
+<table
+  style={{
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+    margin: "16px 0",
+  }}
+>
+  <thead>
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+      <th style={{ textAlign: "left", padding: "8px 12px", width: "36%" }}>
+        node-id
+      </th>
+      <th style={{ textAlign: "left", padding: "8px 12px" }}>링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    {FIGMA_KANBAN_DOC_NODE_IDS.map((id) => (
+      <tr key={id} style={{ borderBottom: "1px solid var(--border)" }}>
+        <td style={{ padding: "8px 12px" }}>
+          <code style={{ fontSize: "12px" }}>{id.replace(":", "-")}</code>
+        </td>
+        <td style={{ padding: "8px 12px" }}>
+          <a href={figmaKanbanNodeUrl(id)} target="_blank" rel="noreferrer">
+            Open in Figma
+          </a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+심볼 기준: <code>{FIGMA_KANBAN_VARIANTS_SECTION}</code> 하위 **Collapsed=false /
+true**. 독스 보드 프레임: <code>{FIGMA_KANBAN_DOC_BOARD}</code>.
+
+---
+
+## Props
+
+<ArgTypes of={KanbanStories} />

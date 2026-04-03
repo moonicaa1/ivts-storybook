@@ -1,0 +1,120 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as MetricCardStories from "./metric-card-pattern.stories";
+import { Badge, MetaRow } from "../ui/button-story/ButtonDocHelpers";
+import {
+  FIGMA_METRIC_CARD_FILE_BASE,
+  FIGMA_METRIC_CARD_NODE,
+  figmaMetricCardNodeUrl,
+} from "./metric-card/figma";
+
+export const figmaLinks = (
+  <p
+    style={{
+      fontSize: "14px",
+      color: "var(--muted-foreground)",
+      marginBottom: "16px",
+    }}
+  >
+    <strong>Figma:</strong>{" "}
+    <a href={FIGMA_METRIC_CARD_FILE_BASE} target="_blank" rel="noreferrer">
+      파일
+    </a>
+    {" · "}
+    <a
+      href={figmaMetricCardNodeUrl(FIGMA_METRIC_CARD_NODE.variants)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Variants
+    </a>
+    {" · "}
+    <a
+      href={figmaMetricCardNodeUrl(FIGMA_METRIC_CARD_NODE.pattern)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Pattern
+    </a>
+    {" · "}
+    <a
+      href={figmaMetricCardNodeUrl(FIGMA_METRIC_CARD_NODE.pageMinimum)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Minimum
+    </a>
+    {" · "}
+    <a
+      href={figmaMetricCardNodeUrl(FIGMA_METRIC_CARD_NODE.pageMaximum)}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Maximum
+    </a>
+  </p>
+);
+
+<Meta of={MetricCardStories} />
+
+# Metric Card <Badge status="Stable" />
+
+<MetaRow id="PT-MC-01" />
+
+Inventis DS **메트릭 카드** — KPI 요약, outline 배지 트렌드, Default는 하단
+설명까지 표시합니다.
+
+{figmaLinks}
+
+---
+
+## Default
+
+<Canvas
+  of={MetricCardStories.Default}
+  layout="padded"
+  story={{ inline: false, height: "280px" }}
+  sourceState="closed"
+/>
+
+## Compact
+
+<Canvas
+  of={MetricCardStories.Compact}
+  layout="padded"
+  story={{ inline: false, height: "210px" }}
+  sourceState="closed"
+/>
+
+## Variants
+
+<Canvas
+  of={MetricCardStories.Variants}
+  layout="padded"
+  story={{ inline: false, height: "500px" }}
+  sourceState="closed"
+/>
+
+## Pattern
+
+<Canvas
+  of={MetricCardStories.Pattern}
+  layout="fullscreen"
+  story={{ inline: false, height: "380px" }}
+  sourceState="closed"
+/>
+
+## Filter row
+
+<Canvas
+  of={MetricCardStories.FilterRowMinimum}
+  layout="fullscreen"
+  story={{ inline: false, height: "200px" }}
+  sourceState="closed"
+/>
+
+<Canvas
+  of={MetricCardStories.FilterRowMaximum}
+  layout="fullscreen"
+  story={{ inline: false, height: "200px" }}
+  sourceState="closed"
+/>

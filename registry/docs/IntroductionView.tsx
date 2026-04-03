@@ -1,5 +1,7 @@
 "use client";
 
+import { Card, CardContent } from "@/bases/radix/components/ui/card";
+import radixRegistry from "@/registry.radix.json";
 import {
   ArrowPathIcon,
   CubeTransparentIcon,
@@ -8,12 +10,7 @@ import {
   PuzzlePieceIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import {
-  Card,
-  CardContent,
-} from "@/bases/radix/components/ui/card";
 import React from "react";
-import radixRegistry from "@/registry.radix.json";
 
 type RegistryItem = {
   name: string;
@@ -25,10 +22,12 @@ const registry = radixRegistry as { items: RegistryItem[] };
 function getStats() {
   const items = registry.items ?? [];
   const tokens = items.filter(
-    (i) => i.categories?.includes("design") && i.categories?.includes("tokens")
+    (i) => i.categories?.includes("design") && i.categories?.includes("tokens"),
   ).length;
   const components = items.filter((i) => i.categories?.includes("ui")).length;
-  const patterns = items.filter((i) => i.categories?.includes("pattern")).length;
+  const patterns = items.filter((i) =>
+    i.categories?.includes("pattern"),
+  ).length;
   const pages = items.filter((i) => i.categories?.includes("page")).length;
   return [
     { value: String(tokens), label: "Design Tokens" },
@@ -44,42 +43,42 @@ const PRINCIPLES = [
     en: "Consistency",
     ko: "일관성",
     desc: "모든 화면과 플랫폼에서 동일한 시각 언어와 인터랙션 패턴을 유지합니다.",
-    token: "var(--base-chart-3)",
+    token: "var(--chart-3)",
   },
   {
     Icon: SparklesIcon,
     en: "Efficiency",
     ko: "효율성",
     desc: "재사용 가능한 컴포넌트로 반복적인 디자인·개발 작업을 줄입니다.",
-    token: "var(--base-chart-4)",
+    token: "var(--chart-4)",
   },
   {
     Icon: PuzzlePieceIcon,
     en: "Scalability",
     ko: "확장성",
     desc: "새로운 요구사항에 유연하게 대응할 수 있도록 확장 가능하게 설계됩니다.",
-    token: "var(--base-chart-2)",
+    token: "var(--chart-2)",
   },
   {
     Icon: EyeIcon,
     en: "Clarity",
     ko: "명확성",
     desc: "직관적인 디자인으로 사용자의 인지 부하를 줄이고 명확한 커뮤니케이션을 지원합니다.",
-    token: "var(--base-chart-5)",
+    token: "var(--chart-5)",
   },
   {
     Icon: HandRaisedIcon,
     en: "Accessibility",
     ko: "접근성",
     desc: "WCAG 기준을 충족하는 포용적 디자인으로 모든 사용자를 지원합니다.",
-    token: "var(--base-chart-4)",
+    token: "var(--chart-4)",
   },
   {
     Icon: CubeTransparentIcon,
     en: "Flexibility",
     ko: "유연성",
     desc: "다양한 제품 요구에 맞게 조합·커스터마이징 가능한 컴포넌트를 제공합니다.",
-    token: "var(--base-chart-1)",
+    token: "var(--chart-1)",
   },
 ];
 
@@ -105,7 +104,7 @@ export function IntroductionView() {
             borderRadius: "var(--radius-xl)",
             marginBottom: "var(--spacing-6)",
             display: "block",
-            border: "1px solid var(--base-border)",
+            border: "1px solid var(--border)",
           }}
         />
 
@@ -116,17 +115,17 @@ export function IntroductionView() {
               display: "grid",
               gridTemplateColumns: "repeat(4, 1fr)",
               gap: "1px",
-              background: "var(--base-border)",
+              background: "var(--border)",
               borderRadius: "var(--radius-xl)",
               overflow: "hidden",
-              border: "1px solid var(--base-border)",
+              border: "1px solid var(--border)",
             }}
           >
             {STATS.map(({ value, label }) => (
               <div
                 key={label}
                 style={{
-                  background: "var(--base-background)",
+                  background: "var(--background)",
                   padding: "var(--spacing-7) var(--spacing-6)",
                   textAlign: "center",
                 }}
@@ -135,7 +134,7 @@ export function IntroductionView() {
                   style={{
                     fontSize: "var(--text-3xl-font-size)",
                     fontWeight: 700,
-                    color: "var(--base-foreground)",
+                    color: "var(--foreground)",
                     letterSpacing: "-0.04em",
                     lineHeight: 1,
                   }}
@@ -262,7 +261,7 @@ export function IntroductionView() {
                       style={{
                         fontSize: "var(--text-sm-font-size)",
                         fontWeight: 600,
-                        color: "var(--base-foreground)",
+                        color: "var(--foreground)",
                       }}
                     >
                       {en}
