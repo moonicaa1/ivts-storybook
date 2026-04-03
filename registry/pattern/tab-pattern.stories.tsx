@@ -82,7 +82,6 @@ const noControls = {
 
 /** 통합 조작 — Line 페이지 탭·슬롯 */
 export const Playground: Story = {
-  name: "Playground",
   render: (args) => <TabsLineScreen {...args} />,
 };
 

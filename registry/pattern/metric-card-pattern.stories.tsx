@@ -48,7 +48,6 @@ type Story = StoryObj<typeof meta>;
 
 /** Figma Type=Default (`26824:363044`) */
 export const Default: Story = {
-  name: "Default",
   parameters: {
     docs: {
       canvas: { layout: "padded" },
@@ -66,7 +65,6 @@ export const Default: Story = {
 
 /** Figma Type=Compact (`26824:363143`) */
 export const Compact: Story = {
-  name: "Compact",
   args: { variant: "compact" },
   parameters: {
     docs: {
@@ -79,7 +77,6 @@ export const Compact: Story = {
 
 /** Figma Variants 섹션 (`26824:373540`) — Default + Compact */
 export const Variants: Story = {
-  name: "Variants",
   render: () => (
     <div className="flex w-full max-w-[400px] flex-col gap-8">
       <InventisMetricCard
@@ -139,7 +136,6 @@ function PatternPanel({
 
 /** Figma Pattern (`26824:373652`) — Light / Dark */
 export const Pattern: Story = {
-  name: "Pattern",
   parameters: {
     layout: "fullscreen",
     docs: {

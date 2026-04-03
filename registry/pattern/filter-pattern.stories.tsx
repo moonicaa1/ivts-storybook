@@ -72,7 +72,6 @@ function FilterDemo(
 
 /** Figma MCP — 타임스케일 ON: 단일 툴바 행 */
 export const Default: Story = {
-  name: "Default",
   render: () => (
     <div className="bg-background w-full max-w-[1320px] overflow-x-auto p-4">
       <FilterDemo />

@@ -45,7 +45,6 @@ type Story = StoryObj<typeof meta>;
 
 /** Figma Properties `26863:28021` — 컴포넌트 12 variant */
 export const Properties: Story = {
-  name: "Properties",
   render: () => (
     <div className="flex w-full max-w-[120px] flex-col gap-2.5">
       {INVENTIS_STATUS_BADGE_COLORS.map((c) => (
@@ -161,7 +160,6 @@ function PatternPanel({
 }
 
 export const Pattern: Story = {
-  name: "Pattern",
   parameters: {
     layout: "fullscreen",
     docs: {
@@ -212,7 +210,6 @@ const EXAMPLES: { label: string; color: InventisStatusBadgeColor }[] = [
 ];
 
 export const Examples: Story = {
-  name: "Examples",
   render: () => (
     <div className="flex max-w-md flex-col gap-3">
       {EXAMPLES.map(({ label, color }) => (

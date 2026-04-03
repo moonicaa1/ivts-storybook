@@ -66,7 +66,6 @@ export const InCard: Story = {
 };
 
 export const Inline: Story = {
-  name: "Inline",
   args: { variant: "inline" },
   parameters: {
     docs: {
@@ -76,7 +75,6 @@ export const Inline: Story = {
 };
 
 export const Variants: Story = {
-  name: "Variants",
   render: () => (
     <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
       <div>
@@ -101,7 +99,6 @@ export const Variants: Story = {
 };
 
 export const Properties: Story = {
-  name: "Properties",
   render: () => (
     <div className="flex max-w-2xl flex-col gap-10 text-left">
       <section>
@@ -193,7 +190,6 @@ function Panel({
 }
 
 export const Pattern: Story = {
-  name: "Pattern",
   parameters: {
     layout: "fullscreen",
     docs: {

@@ -43,7 +43,6 @@ type Story = StoryObj<typeof meta>;
 
 /** Figma Type=Default — 칸반 열 폭(~233px) 기준 컴팩트 카드 */
 export const Default: Story = {
-  name: "Default",
   decorators: [
     (Story) => (
       <div className="w-[233px]">
@@ -55,7 +54,6 @@ export const Default: Story = {
 
 /** Figma Type=Action — 큐 패널 폭(~366px), SMS / Call / Check In 푸터 */
 export const WithActionFooter: Story = {
-  name: "With Action Footer",
   args: {
     type: "action",
     onSendSms: fn(),
@@ -73,7 +71,6 @@ export const WithActionFooter: Story = {
 
 /** Figma Type=Schedule — 앰버 좌측 강조, 차량·시간 위주 */
 export const Schedule: Story = {
-  name: "Schedule",
   render: () => (
     <div className="w-[388px] max-w-full">
       <InventisRoCard
@@ -90,7 +87,6 @@ export const Schedule: Story = {
 
 /** Default + 진행률 행 (Figma progress 플래그) */
 export const WithProgress: Story = {
-  name: "With Progress",
   args: {
     showProgress: true,
     progressValue: 50,

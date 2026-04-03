@@ -133,7 +133,6 @@ type Story = StoryObj<typeof meta>;
 
 /** Figma Context Maximum · Customer — 26791:110939 · @dnd-kit 열 간 이동 */
 export const Playground: Story = {
-  name: "Playground",
   render: () => <KanbanCustomerContextPlaygroundDnd />,
   parameters: {
     layout: "fullscreen",
@@ -144,7 +143,6 @@ export const Playground: Story = {
 
 /** Figma `Collapsed=false` — 단일 열 · Controls 연동 */
 export const Expanded: Story = {
-  name: "Expanded",
   render: (args) => (
     <div className="bg-background flex min-h-svh items-start justify-center p-8">
       <InventisKanbanColumn {...args} defaultCollapsed={false}>
@@ -159,7 +157,6 @@ export const Expanded: Story = {
 
 /** Figma `Collapsed=true` — 52px 레일 */
 export const Collapsed: Story = {
-  name: "Collapsed",
   args: { defaultCollapsed: true, footer: false, showDragHere: false },
   render: (args) => (
     <div className="bg-background flex min-h-svh items-start justify-center p-8">
